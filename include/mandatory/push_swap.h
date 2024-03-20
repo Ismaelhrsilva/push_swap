@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/20 18:54:12 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/20 19:12:20 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,18 @@
 # include "../lib/printf/ft_printf.h"
 
 
+typedef struct s_stack
+{
+	int	value;
+	struct s_stack *next;
+	struct s_stack *previous;
+}	t_stack;
+
 typedef struct s_pushswap
 {
 	int	value;
-	s_pushswap	a;
-	s_pushswap	b;
+	struct s_stack	**a;
+	struct s_stack	**b;
 }	t_pushswap;
 
 #endif

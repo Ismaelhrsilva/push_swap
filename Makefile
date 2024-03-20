@@ -6,11 +6,11 @@
 #    By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 18:32:40 by ishenriq          #+#    #+#              #
-#    Updated: 2024/03/20 18:32:42 by ishenriq         ###   ########.fr        #
+#    Updated: 2024/03/20 19:02:58 by ishenriq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap 
+NAME	= push_swap
 CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g3 -O3
 CC	:= cc
 PRINTF	:= lib/printf/
@@ -18,7 +18,7 @@ LIBFT	:= lib/libft/
 BUILD_DIR = objects/
 MKDIR  := mkdir -p
 
-HEADERS	:= -I $(LIBFT) -I $(PRINTF) $(LIBS) 
+HEADERS	:= -I ./include -I $(LIBFT) -I $(PRINTF) $(LIBS) 
 
 LIBS 	:= $(LIBFT)libft.a \
 	-lm $(PRINTF)libftprintf.a
