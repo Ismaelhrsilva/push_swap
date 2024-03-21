@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/21 19:57:25 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/21 20:02:10 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ static void 	push_b(t_stack **a, t_stack **b)
 	if (*b == NULL)
 	{
 		temp = *a;
-		tempb = *b;
 		*a = temp->next;
 		*b = temp;
-		tempb->next = NULL;
-		tempb->previous = NULL;
+		temp->next = NULL;
+		temp->previous = NULL;
+		tempa = *a;
+		tempa->previous = NULL;
 	}
 	else
 	{
