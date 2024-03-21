@@ -6,18 +6,73 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/20 19:13:14 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:06:10 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-static void get_list(char *list_int)
+static t_stack	*add_node(int value)
+{
+	t_stack	*a;
+
+	a = malloc(1 * typeof(t_stack));
+	if (!a)
+		return ;
+	a->value = value;
+	a->next = NULL;
+	a->previous = NULL;
+	return (a);
+}
+
+static t_stack	*go_last_stack(t_stack **a)
+{
+	t_stack *temp;
+
+	*temp = a;
+	if (a == NULL)
+		return ;
+	else
+	{
+		while (temp->next != NULL)
+			temp = temp->next;
+		return (temp);
+	}
+}
+
+static void	add_back(t_stack **a, t_stack *node)
+{
+	if (a == NULL)
+	{
+		*a = node;
+		return ;
+	}
+	else
+	{
+		temp = go_last_stack(a);
+		temp->next = node;
+	}
+}
+
+static void get_list(t_stack **a, char *list_int)
 {
 	char	**list;
-	//t_stack	*a;
+	int i;
+	t_stack	*node;
 
+	i = 0;
 	list = ft_split(list_int, ' ');
+	while (list[i])
+	{
+		node = add_node(list[i][0])
+		if (a == NULL)
+		{
+			add_back(a, node);
+		}
+		else 
+			add_back(a, node);
+		i++;
+	}
 	return ;
 }
 
