@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/21 17:00:59 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:53:52 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ typedef struct s_pushswap
 	struct s_stack	*a;
 	struct s_stack	*b;
 }	t_pushswap;
+
+t_stack	*add_node(int value);
+void	add_back(t_stack **a, t_stack *node);
+t_stack	*go_last_stack(t_stack *a);
 
 #endif

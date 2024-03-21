@@ -6,53 +6,11 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/21 18:40:55 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:46:32 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
-
-static t_stack	*add_node(int value)
-{
-	t_stack	*a;
-
-	a = malloc(1 * sizeof(t_stack));
-	if (a == NULL)
-		return (NULL);
-	a->value = value;
-	a->next = NULL;
-	a->previous = NULL;
-	return (a);
-}
-
-/*static t_stack	*go_last_stack(t_stack *a)
-{
-	if (!a)
-		return (0);
-	else
-	{
-		while (a && a->next != NULL)
-			a = a->next;
-		return (a);
-	}
-}*/
-
-static void	add_back(t_stack **a, t_stack *node)
-{
-	t_stack *temp;
-
-	if (node == NULL)
-		return  ;
-	if (*a == NULL)
-		*a = node;
-	else
-	{
-		temp = *a;
-		while (temp && temp->next != NULL)
-			temp = temp->next;
-		temp->next = node;
-	}
-}
 
 static void get_list(t_stack **a, char *list_int)
 {
@@ -115,6 +73,6 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 		get_list(&pushswap->a, argv[1]);
 	else
-		get_list_2(&pushswap->a, argv);
+		get_list_2(&pushswap->a, argv + 1);
 	return (0);
 }
