@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/21 18:53:37 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/21 19:01:04 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,12 @@ void	add_back(t_stack **a, t_stack *node)
 	else
 	{
 		temp = go_last_stack(*a);
+		//temp = *a;
 		//while (temp && temp->next != NULL)
+		//{
 		//	temp = temp->next;
+		//}
+		node->previous = temp;
 		temp->next = node;
 	}
 }
