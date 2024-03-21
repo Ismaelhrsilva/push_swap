@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/20 19:12:20 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:09:15 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_stack
 typedef struct s_pushswap
 {
 	int	value;
-	struct s_stack	**a;
-	struct s_stack	**b;
+	struct s_stack	*a;
+	struct s_stack	*b;
 }	t_pushswap;
 
 #endif
