@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/20 21:10:42 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/21 17:01:51 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ int	main(int argc, char **argv)
 {
 	t_pushswap	*pushswap;
 
+	pushswap = NULL;
+	pushswap->a = NULL;
+	pushswap->b = NULL;
 	pushswap = malloc(1 * sizeof(t_pushswap));
-	pushswap->a = malloc(1 * sizeof(t_stack));
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
