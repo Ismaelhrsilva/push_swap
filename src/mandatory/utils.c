@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 15:57:56 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:25:03 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,13 @@ t_stack *init_stack(void)
 	static t_stack stack;
 
 	return (&stack);
+}
+
+t_stack *init_stack_b(void)
+{
+	static t_stack stack_b;
+
+	return (&stack_b);
 }
 
 void	print_stack(t_stack *stack)
