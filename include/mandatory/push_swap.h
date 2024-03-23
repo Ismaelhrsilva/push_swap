@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 12:14:44 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 13:52:36 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,8 @@ t_stack *init_stack(void);
 /*** Functions implementation of stack ***/
 void	push(t_stack *stack, void *content);
 
+
+/*** Utils Functions ***/
+void	print_stack(t_stack *stack);
 
 #endif

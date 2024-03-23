@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 12:20:59 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 13:55:07 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,28 @@ t_stack *init_stack(void)
 	static t_stack stack;
 
 	return (&stack);
+}
+
+void	print_stack(t_stack *stack)
+{
+	t_list	*node;
+
+	if (!stack)
+	{
+		ft_putchar('\n');
+		return ;
+	}
+	node = stack->head;
+	ft_putchar('[');
+	while (node != NULL)
+	{
+		//ft_putnbr(*(int *)node->content);
+		ft_printf("%d", *(int *)node->content);
+		if (node->next != NULL)
+			ft_putstr(", ");
+		node = node->next;
+	}
+	ft_putchar(']');
+	ft_putchar('\n');
+
 }
