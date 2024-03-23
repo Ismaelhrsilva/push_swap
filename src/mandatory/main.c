@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 17:58:47 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 18:02:44 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		exit(EXIT_FAILURE);
 	else if (argc == 2)
-		get_list(stack, argv[1], argc - 1);
+		get_list(stack, argv[1]);
 	else
 		get_list_2(stack, argv + 1, argc - 1);
 	if (!stack->head)
