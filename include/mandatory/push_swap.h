@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 14:57:48 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:48:02 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	push(t_stack *stack, void *content);
 void	*pop(t_stack *stack);
 void	swap(t_stack *stack);
 void	rotate(t_stack *stack);
+void	reverse_rotate(t_stack *stack);
 
 /*** Utils Functions ***/
 void	print_stack(t_stack *stack);
