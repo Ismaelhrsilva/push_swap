@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:59:21 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 17:19:55 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 19:08:53 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,31 @@ int	sorted_stack(t_stack *stack)
 		size--;
 	}
 	return (1);
+}
+
+t_pos	pos_(t_weight compar, t_stack *stack)
+{
+	
+	
+
+
+
+}
+
+
+
+int		bigger(int a, int b)
+{
+	if (a > b)
+		return (1);
+	else
+		return (0);
+}
+
+int		smaller(int a, int b);
+{
+	if (a < b)
+		return (1);
+	else
+		return (0);
 }

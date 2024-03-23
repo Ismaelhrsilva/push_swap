@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 18:03:11 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 19:02:53 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,19 @@ typedef enum e_move
 	RRR = 1 << 11,
 }		t_move;
 
+typedef	struct s_pos
+{
+	int		value;
+	long	pos;
+}	t_pos;
+
 typedef struct s_stack
 {
 	t_list	*head;
 	int	size;
 }	t_stack;
+
+typedef int	(*t_weight)(int a, int b);
 
 /*** Utils Functions ***/
 void	print_stack(t_stack *stack);
@@ -56,5 +64,11 @@ void	reverse_rotate(t_stack *stack);
 
 /*** Functions stack suport ***/
 int	sorted_stack(t_stack *stack);
+t_pos	pos_(t_weight compar, t_stack *stack);
+int		bigger(int a, int b);
+int		smaller(int a, int b);
+
+/*** Functions Sort less five ***/
+
 
 #endif
