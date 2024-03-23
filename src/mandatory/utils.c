@@ -6,13 +6,13 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 14:34:39 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:53:47 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-static int *get_number(char *nbr)
+int *get_number(char *nbr)
 {
 	long	*number;
 
@@ -23,28 +23,22 @@ static int *get_number(char *nbr)
 	return ((int *)number); 
 }
 
-/*void get_list(t_stack **a, char *list_int)
+void get_list(t_stack **a, char *list_int)
 {
 	char	**list;
 	int i;
-	t_stack	*node;
+	int	*number;
 
 	i = 0;
 	list = ft_split(list_int, ' ');
 	while (list[i])
 	{
-		node = add_node(ft_atoi(list[i]));
-		ft_printf("%d\n", node->value);
-		if (*a == NULL)
-		{
-			add_back(a, node);
-		}
-		else 
-			add_back(a, node);
+		number = get_number(list[i]);
+		push(stack, number);
 		i++;
 	}
 	return ;
-}*/
+}
 
 void get_list_2(t_stack *stack, char **list_int)
 {

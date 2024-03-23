@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 15:48:02 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:53:42 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ typedef struct s_stack
 	int	size;
 }	t_stack;
 
-//void get_list(t_stack **a, char *list_int);
-void get_list_2(t_stack *a, char **list_int);
-
-
-
+/*** Utils Functions ***/
+void	print_stack(t_stack *stack);
+void get_list(t_stack **a, char *list_int);
+void get_list_1(t_stack *a, char **list_int);
+int *get_number(char *nbr);
 t_stack *init_stack(void);
 
 /*** Functions implementation of stack ***/
@@ -52,8 +52,5 @@ void	*pop(t_stack *stack);
 void	swap(t_stack *stack);
 void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
-
-/*** Utils Functions ***/
-void	print_stack(t_stack *stack);
 
 #endif
