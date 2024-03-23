@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 12:02:42 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:14:44 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_stack
 }	t_stack;
 
 //void get_list(t_stack **a, char *list_int);
-void get_list_2(t_stack **a, char **list_int);
+void get_list_2(t_stack *a, char **list_int);
 
 
 

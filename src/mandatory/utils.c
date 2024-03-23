@@ -6,13 +6,13 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 12:02:34 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:20:59 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-void get_list(t_stack **a, char *list_int)
+/*void get_list(t_stack **a, char *list_int)
 {
 	char	**list;
 	int i;
@@ -33,16 +33,16 @@ void get_list(t_stack **a, char *list_int)
 		i++;
 	}
 	return ;
-}
+}*/
 
-void get_list_2(t_stack **a, char **list_int)
+void get_list_2(t_stack *stack, char **list_int)
 {
 	int i;
 
 	i = 0;
 	while (list_int[i] != NULL)
 	{
-		push(stack, ft_atoi(list_int[i]));
+		push(stack, (void *)ft_atol(list_int[i]));
 		i++;
 	}
 	return ;

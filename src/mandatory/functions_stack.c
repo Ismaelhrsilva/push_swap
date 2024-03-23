@@ -6,54 +6,18 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/21 19:01:04 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:10:28 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-t_stack	*add_node(int value)
+void	push(t_stack *stack, void *content)
 {
-	t_stack	*a;
+	t_list *node;
 
-	a = malloc(1 * sizeof(t_stack));
-	if (a == NULL)
-		return (NULL);
-	a->value = value;
-	a->next = NULL;
-	a->previous = NULL;
-	return (a);
-}
-
-t_stack	*go_last_stack(t_stack *a)
-{
-	if (!a)
-		return (0);
-	else
-	{
-		while (a && a->next != NULL)
-			a = a->next;
-		return (a);
-	}
-}
-
-void	add_back(t_stack **a, t_stack *node)
-{
-	t_stack *temp;
-
-	if (node == NULL)
-		return  ;
-	if (*a == NULL)
-		*a = node;
-	else
-	{
-		temp = go_last_stack(*a);
-		//temp = *a;
-		//while (temp && temp->next != NULL)
-		//{
-		//	temp = temp->next;
-		//}
-		node->previous = temp;
-		temp->next = node;
-	}
+	node = ft_lstnew(content);
+	ft_lstadd_front(&stack->head, node);
+	stack->head = node;
+	stack->size++;
 }

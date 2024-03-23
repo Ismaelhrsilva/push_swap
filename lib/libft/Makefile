@@ -6,7 +6,7 @@
 #    By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/11 20:55:32 by ishenriq          #+#    #+#              #
-#    Updated: 2024/03/20 18:28:12 by ishenriq         ###   ########.fr        #
+#    Updated: 2024/03/23 12:20:47 by ishenriq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ CFLAGS =  -Wall -Wextra -Werror -g3 -O0
 
 #arquivos e objetos
 PT_C = ft_atoi.c \
+ft_atol.c \
 ft_bzero.c \
 ft_calloc.c \
 ft_isalnum.c \
