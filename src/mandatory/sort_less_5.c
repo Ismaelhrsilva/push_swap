@@ -6,10 +6,27 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:28:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 19:08:55 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:32:06 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
+void	sort_3(t_stack *stack)
+{
+	t_pos	small;
+	t_post	big;
 
+	if (stack->size == 1)
+		return ;
+	else if (stack->size ==2)
+		return (operations(SA, stack, NULL));
+	small = pos_(smaller, stack);
+	big = pos_(bigger, stack);
+	if (big.index == 0)
+		operations(RA, stack, NULL);
+	else if (big.index == 1)
+		operations(RRA, stack, NULL);
+	if (*(int *)see_stack(stack) != small.value)
+		operations(SA, stack, NULL);
+}

@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 18:02:44 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:35:10 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ static void	ft_pushswap(t_stack *stack, t_stack *stack_b)
 	ft_printf("Começa aqui a ordenação\n");
 	ft_printf("Stack A --> %d\n", sorted_stack(stack));
 	ft_printf("Stack B --> %d\n", sorted_stack(stack_b));
+	while (sorted_stack(stack))
+	{
+		sorted_3(stack);
+		ft_printf(" ------------------ \n\n");
+		print_stack(stack);
+		print_stack(stack_1);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -38,9 +45,12 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error", 2);
 		exit(EXIT_FAILURE);
 	}
-	ft_pushswap(stack, stack_b);
 	print_stack(stack);
-	rotate(stack);
+	print_stack(stack_1);
+	ft_printf(" ------------------ \n\n");
+	ft_pushswap(stack, stack_b);
+
+	/*rotate(stack);
 	print_stack(stack);
 	reverse_rotate(stack);
 	print_stack(stack);
@@ -50,7 +60,7 @@ int	main(int argc, char **argv)
 	print_stack(stack);
 	print_stack(stack_b);
 	push(stack_b, b);
-	print_stack(stack_b);
+	print_stack(stack_b);*/
 
 	return (0);
 }

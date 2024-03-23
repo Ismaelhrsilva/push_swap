@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:59:21 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 20:11:00 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:30:00 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,11 @@ int		smaller(int a, int b);
 		return (1);
 	else
 		return (0);
+}
+
+void	*see_stack(t_stack *stack)
+{
+	if (!stack->size)
+		return (NULL);
+	return (stack->head->content);
 }
