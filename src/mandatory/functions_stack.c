@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 14:51:05 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:57:37 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,16 @@ void	swap(t_stack *stack)
 	b = pop(stack);
 	push(stack, a);
 	push(stack, b);
+}
+
+void	rotate(t_stack *stack)
+{
+	void	*value;
+	t_list	*node;
+
+	value = pop(stack);
+	node = ft_lstnew(value);
+	ft_lstadd_front(&stack->head, node);
+	stack->head = node;
+	stack->size++;
 }
