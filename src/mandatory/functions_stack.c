@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 15:47:47 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:49:10 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ void	rotate(t_stack *stack)
 
 void	reverse_rotate(t_stack *stack)
 {
-	t_list	temp;
+	t_list	*temp;
 	void	*value;
 
-	if (stack < 2)
+	if (stack->size < 2)
 		return ;
 	temp = stack->head;
-	while (temp->next-next)
+	while (temp->next->next)
 		temp = temp->next;
 	value = temp->next->content;
 	ft_lstdelone(temp, NULL);
