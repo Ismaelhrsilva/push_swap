@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 20:13:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 20:37:36 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:55:56 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 		swap(stack);
 	if (operations & SB || operations & SS)
 		swap(stack_b);
-	if (operations & PA && stack_b->size)
+	if ((operations & PA) && stack_b->size)
 		push(stack, pop(stack_b));
-	if (operations & PB && stack->size)
+	if ((operations & PB && stack->size)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  && stack->size)
 		push(stack_b, pop(stack));
 	if (operations & RA || operations & RR)
 		rotate(stack);
@@ -30,5 +30,4 @@ void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 		reverse_rotate(stack);
 	if (operations & RRB || operations & RRR)
 		reverse_rotate(stack_b);
-	(void)print_stack;
 }

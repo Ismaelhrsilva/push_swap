@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 20:38:59 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:40:15 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	main(int argc, char **argv)
 	ft_printf(" ------------------ \n\n");
 	ft_pushswap(stack, stack_b);
 
+	print_stack(stack);
+	print_stack(stack_b);
 	/*rotate(stack);
 	print_stack(stack);
 	reverse_rotate(stack);
