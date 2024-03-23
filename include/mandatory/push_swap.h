@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 20:11:02 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:30:41 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../lib/libft/libft.h"
 # include "../lib/printf/ft_printf.h"
 
-typedef enum e_move
+typedef enum e_operations
 {
 	SA = 1 << 1,
 	SB = 1 << 2,
@@ -31,7 +31,7 @@ typedef enum e_move
 	RRA = 1 << 9,
 	RRB = 1 << 10,
 	RRR = 1 << 11,
-}		t_move;
+}		t_operations;
 
 typedef	struct s_pos
 {
@@ -63,12 +63,16 @@ void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 
 /*** Functions stack suport ***/
-int	sorted_stack(t_stack *stack);
+int		sorted_stack(t_stack *stack);
 t_pos	pos_(t_weight weight, t_stack *stack);
 int		bigger(int a, int b);
 int		smaller(int a, int b);
+void	*see_stack(t_stack *stack);
 
 /*** Functions Sort less five ***/
+void	sort_3(t_stack *stack);
 
+/*** Functions operations ***/
+void	operations(t_operations operations, t_stack *stack, t_stack *stack_b);
 
 #endif
