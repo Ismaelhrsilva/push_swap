@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 17:25:03 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:57:57 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,38 @@ int *get_number(char *nbr)
 	return ((int *)number); 
 }
 
-void get_list(t_stack *stack, char *list_int)
+void get_list(t_stack *stack, char *list_int, int size)
 {
 	char	**list;
 	int i;
 	int	*number;
 
-	i = 0;
+	i = size;
 	list = ft_split(list_int, ' ');
-	while (list[i])
+	while (i > 0)
 	{
+		i--;
 		number = get_number(list[i]);
+		if (!number)
+			exit(EXIT_FAILURE);
 		push(stack, number);
-		i++;
 	}
 	return ;
 }
 
-void get_list_2(t_stack *stack, char **list_int)
+void get_list_2(t_stack *stack, char **list_int, int size)
 {
 	int i;
 	int	*number;
 
-	i = 0;
-	while (list_int[i] != NULL)
+	i = size;
+	while (i > 0)
 	{
+		i--;
 		number = get_number(list_int[i]);
 		if (!number)
 			exit(EXIT_FAILURE);
 		push(stack, number);
-		i++;
 	}
 	return ;
 }
