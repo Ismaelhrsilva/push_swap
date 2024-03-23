@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 15:53:42 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:57:30 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ typedef struct s_stack
 
 /*** Utils Functions ***/
 void	print_stack(t_stack *stack);
-void get_list(t_stack **a, char *list_int);
-void get_list_1(t_stack *a, char **list_int);
-int *get_number(char *nbr);
+void	get_list(t_stack *stack, char *list_int);
+void	get_list_2(t_stack *stack, char **list_int);
+int		*get_number(char *nbr);
 t_stack *init_stack(void);
 
 /*** Functions implementation of stack ***/

@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 15:53:47 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:57:56 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int *get_number(char *nbr)
 	return ((int *)number); 
 }
 
-void get_list(t_stack **a, char *list_int)
+void get_list(t_stack *stack, char *list_int)
 {
 	char	**list;
 	int i;
