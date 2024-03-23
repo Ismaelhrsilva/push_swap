@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 17:36:53 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:44:22 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 {
 	static t_stack	*stack;
 	static t_stack	*stack_b;
+	void	*b;
 
 	stack = init_stack();
 	stack_b = init_stack_b();
@@ -45,8 +46,11 @@ int	main(int argc, char **argv)
 	print_stack(stack);
 	swap(stack);
 	print_stack(stack);
-	pop(stack);
+	b = pop(stack);
 	print_stack(stack);
+	print_stack(stack_b);
+	push(stack_b, b);
+	print_stack(stack_b);
 
 	return (0);
 }
