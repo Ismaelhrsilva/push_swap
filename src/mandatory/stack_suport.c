@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:59:21 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 20:30:00 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:39:26 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		bigger(int a, int b)
 		return (0);
 }
 
-int		smaller(int a, int b);
+int		smaller(int a, int b)
 {
 	if (a < b)
 		return (1);

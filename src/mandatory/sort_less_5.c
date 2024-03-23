@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:28:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 20:32:06 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:36:34 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_3(t_stack *stack)
 {
 	t_pos	small;
-	t_post	big;
+	t_pos	big;
 
 	if (stack->size == 1)
 		return ;
@@ -23,9 +23,9 @@ void	sort_3(t_stack *stack)
 		return (operations(SA, stack, NULL));
 	small = pos_(smaller, stack);
 	big = pos_(bigger, stack);
-	if (big.index == 0)
+	if (big.pos == 0)
 		operations(RA, stack, NULL);
-	else if (big.index == 1)
+	else if (big.pos == 1)
 		operations(RRA, stack, NULL);
 	if (*(int *)see_stack(stack) != small.value)
 		operations(SA, stack, NULL);
