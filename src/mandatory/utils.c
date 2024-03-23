@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 14:33:49 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:34:39 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void	print_stack(t_stack *stack)
 	{
 		number = *((int *)aux->content);
 		ft_putnbr_fd(number, 1);
-		//number = *(int *)stack->head->content;
 		if (aux->next != NULL)
 			ft_putstr(", ");
 		aux = aux->next;
