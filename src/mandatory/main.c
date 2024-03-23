@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 14:58:15 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:02:59 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ int	main(int argc, char **argv)
 	else
 		get_list_2(stack, argv + 1);
 	print_stack(stack);
-	swap(stack);
 	rotate(stack);
+	print_stack(stack);
+	swap(stack);
+	print_stack(stack);
 	pop(stack);
 	print_stack(stack);
 

@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 14:57:37 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:03:23 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	push(t_stack *stack, void *content)
 	t_list *node;
 
 	node = ft_lstnew(content);
+	if (!node)
+		exit(EXIT_FAILURE);
 	ft_lstadd_front(&stack->head, node);
 	stack->head = node;
 	stack->size++;
@@ -55,9 +57,13 @@ void	rotate(t_stack *stack)
 	void	*value;
 	t_list	*node;
 
+	if (stack->size < 2)
+		return ;
 	value = pop(stack);
 	node = ft_lstnew(value);
-	ft_lstadd_front(&stack->head, node);
+	if (!node)
+		exit(EXIT_FAILURE);
+	ft_lstadd_back(&stack->head, node);
 	stack->head = node;
 	stack->size++;
 }
