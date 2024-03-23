@@ -6,11 +6,22 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 14:06:19 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:33:49 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
+
+static int *get_number(char *nbr)
+{
+	long	*number;
+
+	number = malloc(sizeof(int *));
+	if (!number)
+		exit(EXIT_FAILURE);
+	*number = ft_atol(nbr);
+	return ((int *)number); 
+}
 
 /*void get_list(t_stack **a, char *list_int)
 {
@@ -38,11 +49,15 @@
 void get_list_2(t_stack *stack, char **list_int)
 {
 	int i;
+	int	*number;
 
 	i = 0;
 	while (list_int[i] != NULL)
 	{
-		push(stack, (void *)ft_atol(list_int[i]));
+		number = get_number(list_int[i]);
+		if (!number)
+			exit(EXIT_FAILURE);
+		push(stack, number);
 		i++;
 	}
 	return ;
@@ -58,7 +73,7 @@ t_stack *init_stack(void)
 
 void	print_stack(t_stack *stack)
 {
-	t_list	*node;
+	t_list	*aux;
 	int	number;
 
 	if (!stack)
@@ -66,17 +81,16 @@ void	print_stack(t_stack *stack)
 		ft_putchar('\n');
 		return ;
 	}
-	node = stack->head;
+	aux = stack->head;
 	ft_putchar('[');
-	while (node != NULL)
+	while (aux)
 	{
-		//ft_putnbr(*(int *)node->content);
-		//number = *(int *)node->content;
-		number = *(int *)stack->head->content;
-		ft_printf("%x", number);
-		if (node->next != NULL)
+		number = *((int *)aux->content);
+		ft_putnbr_fd(number, 1);
+		//number = *(int *)stack->head->content;
+		if (aux->next != NULL)
 			ft_putstr(", ");
-		node = node->next;
+		aux = aux->next;
 	}
 	ft_putchar(']');
 	ft_putchar('\n');

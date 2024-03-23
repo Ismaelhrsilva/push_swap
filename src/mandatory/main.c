@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 13:53:17 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:17:07 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ int	main(int argc, char **argv)
 {
 	static t_stack	*stack;
 
-	stack = init_stack();
+	//stack = init_stack();
+	
+	stack = malloc(sizeof(t_stack));
+	stack->head = NULL;
+	stack->size = 0;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		exit(EXIT_FAILURE);
 	/*else if (argc == 2)

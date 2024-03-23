@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 13:52:36 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:25:04 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,15 @@ typedef enum e_move
 	RRR = 1 << 11,
 }		t_move;
 
+/*typedef struct s_node
+{
+	int	value;
+}	t_node;*/
+
 typedef struct s_stack
 {
 	t_list	*head;
 	int	size;
-	int	value;
 }	t_stack;
 
 //void get_list(t_stack **a, char *list_int);
