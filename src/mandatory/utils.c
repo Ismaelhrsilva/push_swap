@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 13:55:07 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:06:19 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_stack *init_stack(void)
 void	print_stack(t_stack *stack)
 {
 	t_list	*node;
+	int	number;
 
 	if (!stack)
 	{
@@ -70,7 +71,9 @@ void	print_stack(t_stack *stack)
 	while (node != NULL)
 	{
 		//ft_putnbr(*(int *)node->content);
-		ft_printf("%d", *(int *)node->content);
+		//number = *(int *)node->content;
+		number = *(int *)stack->head->content;
+		ft_printf("%x", number);
 		if (node->next != NULL)
 			ft_putstr(", ");
 		node = node->next;
