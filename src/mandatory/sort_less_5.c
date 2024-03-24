@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:28:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 20:56:49 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:00:11 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ void	sort_3(t_stack *stack)
 	t_pos	small;
 	t_pos	big;
 
-	print_stack(stack);
 	if (stack->size == 1)
 		return ;
-	else if (stack->size ==2)
+	else if (stack->size == 2)
 		return (operations(SA, stack, NULL));
 	small = pos_(smaller, stack);
 	big = pos_(bigger, stack);
