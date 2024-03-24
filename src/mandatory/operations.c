@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 20:13:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 21:27:58 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:56:20 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,7 @@ void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 		reverse_rotate(stack);
 	if (operations & RRB || operations & RRR)
 		reverse_rotate(stack_b);
-	ft_printf("Stak A\n");
-	print_stack(stack);
-	ft_printf("-----------------------------------------\n");
-	ft_printf("Stak B\n");
-	print_stack(stack_b);
+	print_operations(t_operations operations)
 }
 
 void	loop(t_operations operation, long x, t_stack *stack, t_stack *stack_b)
@@ -47,4 +43,25 @@ void	loop(t_operations operation, long x, t_stack *stack, t_stack *stack_b)
 		operations(operation, stack, stack_b);
 		i++;
 	}
+}
+
+void	print_operations(t_operations operations)
+{
+	if (operations & SA || operations & SB)
+		ft_putstr("s");
+	if (operations & SS)
+		ft_putstr("ss");
+	if (operations & PA || operations & PB)
+		ft_putstr("p");
+	if (operations & RA || operations & RB)
+		ft_putstr("r");
+	if (operations & RR || operations & RRA || operations & RRB)
+		ft_putstr("rr");
+	if (operations & RRR)
+		ft_putstr("rrr");
+	if (operations & SA || operations & PA || operations & RA || operations & RRA)
+		ft_putstr("a");
+	if (operations & SB || operations & PB || operations & RB || operations & RRB)
+		ft_putstr("b");
+	ft_putchar('\n');
 }
