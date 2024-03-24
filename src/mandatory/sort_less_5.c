@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:28:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 21:18:42 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:19:54 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	sort_3(t_stack *stack)
 		operations(SA, stack, NULL);
 }
 
-static void	sort_4(t_stack *stack, t_stack *stack_b)
+void	sort_4(t_stack *stack, t_stack *stack_b)
 {
 	t_pos	small;
 
@@ -56,7 +56,7 @@ void	sort_5(t_stack *stack, t_stack *stack_b)
 	t_pos	small;
 
 	if (stack->size <= 4)
-		return (sort4(stack, stack_b));
+		return (sort_4(stack, stack_b));
 	small = pos_(smaller, stack);
 	if (small.pos == 1)
 		operations(RA, stack, NULL);
