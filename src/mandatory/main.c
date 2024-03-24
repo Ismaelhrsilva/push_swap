@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 21:06:52 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:24:28 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_pushswap(t_stack *stack, t_stack *stack_b)
 	ft_printf("Stack B --> %d\n", sorted_stack(stack_b));
 	while (!sorted_stack(stack))
 	{
-		sort_3(stack);
+		sort_5(stack, stack_b);
 		ft_printf(" ------------------ \n\n");
 		print_stack(stack);
 		print_stack(stack_b);

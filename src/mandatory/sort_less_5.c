@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:28:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 21:19:54 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:25:59 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	sort_4(t_stack *stack, t_stack *stack_b)
 		loop(RA, 2, stack, NULL);
 	else if (small.pos == 3)
 		operations(RRA, stack, NULL);
-	if (!sorted_stack(stack))
+	if (sorted_stack(stack))
 		return ;
 	operations(PB, stack, stack_b);
 	sort_3(stack);
@@ -66,7 +66,7 @@ void	sort_5(t_stack *stack, t_stack *stack_b)
 		loop(RRA, 2, stack, NULL);
 	else if (small.pos == 4)
 		operations(RRA, stack, NULL);
-	if (!sorted_stack(stack))
+	if (sorted_stack(stack))
 		return ;
 	operations(PB, stack, stack_b);
 	sort_4(stack, stack_b);

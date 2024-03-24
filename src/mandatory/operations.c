@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 20:13:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 21:20:30 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:27:58 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 		reverse_rotate(stack);
 	if (operations & RRB || operations & RRR)
 		reverse_rotate(stack_b);
+	ft_printf("Stak A\n");
+	print_stack(stack);
+	ft_printf("-----------------------------------------\n");
+	ft_printf("Stak B\n");
+	print_stack(stack_b);
 }
 
 void	loop(t_operations operation, long x, t_stack *stack, t_stack *stack_b)
