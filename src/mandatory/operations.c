@@ -6,11 +6,13 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 20:13:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 21:56:20 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:06:09 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
+
+static void	show_ops(t_operations operation);
 
 void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 {
@@ -30,7 +32,7 @@ void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 		reverse_rotate(stack);
 	if (operations & RRB || operations & RRR)
 		reverse_rotate(stack_b);
-	print_operations(t_operations operations)
+	show_ops(operations);
 }
 
 void	loop(t_operations operation, long x, t_stack *stack, t_stack *stack_b)
@@ -45,23 +47,23 @@ void	loop(t_operations operation, long x, t_stack *stack, t_stack *stack_b)
 	}
 }
 
-void	print_operations(t_operations operations)
+static	void	show_ops(t_operations operation)
 {
-	if (operations & SA || operations & SB)
+	if (operation & SA || operation & SB)
 		ft_putstr("s");
-	if (operations & SS)
+	if (operation & SS)
 		ft_putstr("ss");
-	if (operations & PA || operations & PB)
+	if (operation & PA || operation & PB)
 		ft_putstr("p");
-	if (operations & RA || operations & RB)
+	if (operation & RA || operation & RB)
 		ft_putstr("r");
-	if (operations & RR || operations & RRA || operations & RRB)
+	if (operation & RR || operation & RRA || operation & RRB)
 		ft_putstr("rr");
-	if (operations & RRR)
+	if (operation & RRR)
 		ft_putstr("rrr");
-	if (operations & SA || operations & PA || operations & RA || operations & RRA)
+	if (operation & SA || operation & PA || operation & RA || operation & RRA)
 		ft_putstr("a");
-	if (operations & SB || operations & PB || operations & RB || operations & RRB)
+	if (operation & SB || operation & PB || operation & RB || operation & RRB)
 		ft_putstr("b");
 	ft_putchar('\n');
 }
