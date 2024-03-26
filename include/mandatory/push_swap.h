@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 22:02:32 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:55:42 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@ typedef enum e_operations
 	RRB = 1 << 10,
 	RRR = 1 << 11,
 }		t_operations;
+
+typedef struct s_aux
+{
+	int	firt_quarter;
+	int	medium;
+	int	ra;
+	int	rb;
+	int	pa;
+	int	pb;
+}	t_aux;
 
 typedef	struct s_pos
 {

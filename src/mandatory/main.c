@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 21:52:00 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:46:34 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ int	main(int argc, char **argv)
 	{
 		ft_putstr_fd("Error", 2);
 		exit(EXIT_FAILURE);
+	}
+	if (sorted_stack(stack))
+	{
+		ft_printf("Não precisa entrar\n");
+		return (0);
 	}
 	ft_pushswap(stack, stack_b);
 	return (0);
