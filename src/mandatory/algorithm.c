@@ -6,20 +6,24 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 20:53:08 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:55:58 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-static void	*init_aux(t_stack *stack, t_aux *aux)
+static t_aux	*init_aux(t_stack *stack)
 {
+	t_aux *aux;
+
+	aux = NULL;
 	aux->big = pos_median(bigger, stack, stack->size / 2);
 	aux->medium = pos_median(bigger, stack, (stack->size / 4) * 3);
 	aux->ra = 0;
 	aux->rb = 0;
 	aux->pa = 0;
 	aux->pb = 0;
+	return (aux);
 }
 
 static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size)
@@ -53,7 +57,6 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 		rotate(stack_b);
 		aux->rb++;
 	}
-	return ;
 }
 
 static void	restore_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size)
@@ -98,7 +101,7 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 		sort_5(stack, stack_b);
 		return ;
 	}
-	aux = init_aux(stack, aux);
+	aux = init_aux(stack);
 	while (size--)
 		divide_stack(stack, stack_b, aux, &size);
 	restore_stack(stack, stack_b, aux, &size);
