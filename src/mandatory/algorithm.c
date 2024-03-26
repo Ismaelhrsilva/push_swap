@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 20:03:09 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:17:03 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,42 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 	}
 	push(stack_b, pop(stack_a));
 	aux->pb++;
-	if (stack_b->value > aux->median)
+	if (stack_b->value > aux->median.value)
 	{
 		rotate(stack_b);
 		aux->rb++;
 	}
 }
 
+static void	restore_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size)
+{
+	int	rrr;
+	int	rrx;
 
+	if (aux->ra > aux->rb)
+	{
+		rrr = aux->rb;
+		rrx = aux->ra - rrr;
+		if ((* size) > 0)
+			loop(RRA, rrx, stack, NULL);
+		else
+			loop(RRB, rrr, NULL ,stack_b);
+	}
+	else
+	{
+		rrr = aux->ra;
+		rrx = aux->rb - rrr;
+		if ((* size) > 0)
+			loop(RRB, rrx, NULL, stack_b);
+		else
+			loop(RRB, aux->rb, NULL, stack_b);
+	}
+	if ((*size) > 0)
+	{
+		loop(RRA, rrr, stack, NULL);
+		loop(RRB, rrr, NULL, stack_b);
+	}
+}
 
 
 
@@ -68,6 +96,7 @@ int	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 	aux = init_aux(stack);
 	while (size--)
 		divide_stack(stack, stack_b, &aux, &size);
+	restore_stack(stack, stack_b, &aux, size);
 	ft_sort(aux.ra, stack, stack_b, count);
 	ft_sort(aux.rb, stack, stack_b, count);
 	ft_sort(aux.pb - aux.rb, stack, stack_b, count);
