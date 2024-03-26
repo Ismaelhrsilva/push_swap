@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:59:21 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 20:39:26 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 18:58:19 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,33 @@ t_pos	pos_(t_weight weight, t_stack *stack)
 		}
 		temp = temp->next;
 		number++;
+	}
+	return (pos);
+}
+
+t_pos	pos_median(t_weight weight, t_stack *stack, int size)
+{
+	t_pos	pos;
+	t_list	*temp;
+	long	number;
+	int		actual;
+
+	temp = stack->head;
+	pos.value = *(int *)temp->content;
+	pos.pos = 0;
+	number = 0;
+	while (temp != NULL)
+	{
+		actual = *(int *)temp->content;
+		if (weight(actual, pos.value))
+		{
+			pos.value = actual;
+			pos.pos = number;
+		}
+		temp = temp->next;
+		number++;
+		if (number = size)
+			break ;
 	}
 	return (pos);
 }
