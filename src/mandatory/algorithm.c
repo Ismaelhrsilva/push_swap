@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 20:48:25 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:53:08 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ static void	*init_aux(t_stack *stack, t_aux *aux)
 
 static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size)
 {
-	if (*size && *(int *)stack->head->content->value < aux->big.value
+	//if (*size && *(int *)stack->head->content->value < aux->big.value
+	//	&& *(int *)stack->head->next->content->value > aux->big.value
+	//	&& *(int *)stack->head->content->value > aux->medium.value)
+	if (*size && *(int *)see_stack(stack) < aux->big.value
 		&& *(int *)stack->head->next->content->value > aux->big.value
-		&& *(int *)stack->head->content->value > aux->medium.value)
+		&& *(int *)see_stack(stack) > aux->medium.value)
 	{
 		push(stack_b, pop(stack));
 		aux->pb++;
@@ -37,7 +40,7 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 		(*size)--;
 		return ;
 	}
-	if (*(int *)stack->head->content->value > aux->big.value)
+	if (*(int *)see_stack(stack) > aux->big.value)
 	{
 		rotate(stack);
 		aux->ra++;
@@ -45,7 +48,7 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 	}
 	push(stack_b, pop(stack));
 	aux->pb++;
-	if (*(int *)stack_b->head->content->value > aux->medium.value)
+	if (*(int *)see_stack(stack_b) > aux->medium.value)
 	{
 		rotate(stack_b);
 		aux->rb++;
