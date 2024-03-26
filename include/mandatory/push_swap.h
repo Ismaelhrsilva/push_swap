@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 19:21:55 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:47:11 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ typedef enum e_operations
 	RRR = 1 << 11,
 }		t_operations;
 
-typedef struct s_aux
-{
-	int	medium;
-	int	big;
-	int	ra;
-	int	rb;
-	int	pa;
-	int	pb;
-}	t_aux;
-
 typedef	struct s_pos
 {
 	int		value;
 	long	pos;
 }	t_pos;
+
+typedef struct s_aux
+{
+	t_pos	medium;
+	t_pos	big;
+	int	ra;
+	int	rb;
+	int	pa;
+	int	pb;
+}	t_aux;
 
 typedef struct s_stack
 {
@@ -78,7 +78,7 @@ t_pos	pos_(t_weight weight, t_stack *stack);
 int		bigger(int a, int b);
 int		smaller(int a, int b);
 void	*see_stack(t_stack *stack);
-t_pos	pos_median(t_weight weight, t_stack *stack);
+t_pos	pos_median(t_weight weight, t_stack *stack, int size);
 
 /*** Functions Sort less five ***/
 void	sort_3(t_stack *stack);
@@ -91,7 +91,7 @@ void	loop(t_operations operations, long x, t_stack *stack, t_stack *stack_b);
 //void	print_operations(t_operations operation);
 
 /*** Functions Algorithm ***/
-int	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count);
+void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count);
 
 
 #endif
