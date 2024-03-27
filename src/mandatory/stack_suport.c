@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:59:21 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 18:58:19 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 21:10:28 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_pos	pos_median(t_weight weight, t_stack *stack, int size)
 		}
 		temp = temp->next;
 		number++;
-		if (number = size)
+		if (number == size)
 			break ;
 	}
 	return (pos);

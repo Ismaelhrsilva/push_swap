@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 20:55:58 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 21:09:54 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ static t_aux	*init_aux(t_stack *stack)
 
 static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size)
 {
+	t_list	*temp;
+
+	temp = stack->head->next;
 	//if (*size && *(int *)stack->head->content->value < aux->big.value
 	//	&& *(int *)stack->head->next->content->value > aux->big.value
 	//	&& *(int *)stack->head->content->value > aux->medium.value)
 	if (*size && *(int *)see_stack(stack) < aux->big.value
-		&& *(int *)stack->head->next->content->value > aux->big.value
+		&& *((int *)temp->content) > aux->big.value
 		&& *(int *)see_stack(stack) > aux->medium.value)
 	{
 		push(stack_b, pop(stack));
