@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 21:09:54 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 21:15:17 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 {
 	t_aux	*aux;
 
-	if (size < 8)
+	if (size <= 5)
 	{
 		sort_5(stack, stack_b);
 		return ;

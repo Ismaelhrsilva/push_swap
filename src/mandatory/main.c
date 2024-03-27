@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 21:12:15 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/26 21:13:54 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 static void	ft_pushswap(t_stack *stack, t_stack *stack_b)
 {
+	int	count;
+
+	count = 0;
 	while (!sorted_stack(stack))
 	{
-		ft_sort(stack, stack_b);
+		ft_sort(stack->size, stack, stack_b, &count);
 	}
 }
 
