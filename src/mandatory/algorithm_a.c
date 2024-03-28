@@ -6,21 +6,21 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/28 20:00:41 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/28 20:23:18 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-static t_aux	*init_aux(t_stack *stack)
+static t_aux	*init_aux(t_stack *stack, int size)
 {
 	t_aux *aux;
 
 	aux = malloc(sizeof(t_aux));
 	if (!aux)
 		return (0);
-	aux->big = pos_median(bigger, stack, stack->size / 2);
-	aux->medium = pos_median(bigger, stack, (stack->size / 4) * 3);
+	aux->big = pos_median(bigger, stack, size / 2);
+	aux->medium = pos_median(bigger, stack, (size / 4) * 3);
 	aux->ra = 0;
 	aux->rb = 0;
 	aux->pa = 0;
@@ -110,7 +110,7 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 		ft_printf("Passei aqui \n");
 		return ;
 	}
-	aux = init_aux(stack);
+	aux = init_aux(stack, size);
 	ft_printf("Bigger -> %d \n", aux->big.value);
 	ft_printf("Medium -> %d \n", aux->medium.value);
 	while (size--)
