@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   algorithm_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/28 17:57:30 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/28 19:56:45 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,6 @@ static void	restore_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *siz
 	}
 }
 
-
-
-
 void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 {
 	t_aux	*aux;
@@ -110,6 +107,7 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 	if (size <= 5)
 	{
 		sort_5(stack, stack_b);
+		ft_printf("Passei aqui \n");
 		return ;
 	}
 	aux = init_aux(stack);
@@ -119,6 +117,6 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 		divide_stack(stack, stack_b, aux, &size);
 	restore_stack(stack, stack_b, aux, &size);
 	ft_sort(aux->ra, stack, stack_b, count);
-	ft_sort(aux->rb, stack, stack_b, count);
-	ft_sort(aux->pb - aux->rb, stack, stack_b, count);
+	ft_sort_b(aux->rb, stack, stack_b, count);
+	ft_sort_b(aux->pb - aux->rb, stack, stack_b, count);
 }
