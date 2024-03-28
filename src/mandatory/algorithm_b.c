@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/28 19:58:01 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/28 20:04:17 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count)
 {
 	t_aux	*aux;
 
+	(*count)++;
 	if (size <= 5)
 	{
 		sort_5(stack, stack_b);
@@ -102,6 +103,7 @@ void	ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count)
 	aux = init_aux(stack_b);
 	while (size--)
 		divide_stack_b(stack, stack_b, aux, &size);
+	ft_printf("aaaaaaaaaaaaaaaaaaaaaaaa\n");
 	ft_sort(aux->pa - aux->ra, stack, stack_b, count);
 	restore_stack_b(stack, stack_b, aux, &size);
 	ft_sort(aux->ra, stack, stack_b, count);
