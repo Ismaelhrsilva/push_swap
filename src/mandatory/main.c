@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/26 21:23:56 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:44:11 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_pushswap(stack, stack_b);
+	//print_stack(stack);
+	//print_stack(stack_b);
 	return (0);
 }

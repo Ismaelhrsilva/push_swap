@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/28 17:35:33 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:57:30 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 		return ;
 	}
 	aux = init_aux(stack);
+	ft_printf("Bigger -> %d \n", aux->big.value);
+	ft_printf("Medium -> %d \n", aux->medium.value);
 	while (size--)
 		divide_stack(stack, stack_b, aux, &size);
 	restore_stack(stack, stack_b, aux, &size);
