@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/28 20:23:39 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:23:50 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ static t_aux	*init_aux(t_stack *stack, int size)
 	aux = malloc(sizeof(t_aux));
 	if (!aux)
 		return (0);
-	aux->big = pos_median(bigger, stack, size / 2);
-	aux->medium = pos_median(bigger, stack, (size / 4) * 3);
+	size = 10;
+	aux->big = pos_median(bigger, stack, 100);
+	aux->medium = pos_median(bigger, stack, 2);
 	aux->ra = 0;
 	aux->rb = 0;
 	aux->pa = 0;

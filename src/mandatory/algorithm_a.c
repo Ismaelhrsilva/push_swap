@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/28 20:23:18 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:27:23 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ static t_aux	*init_aux(t_stack *stack, int size)
 	aux = malloc(sizeof(t_aux));
 	if (!aux)
 		return (0);
-	aux->big = pos_median(bigger, stack, size / 2);
-	aux->medium = pos_median(bigger, stack, (size / 4) * 3);
+	size = 10;
+	aux->big = pos_median(bigger, stack, 100);
+	aux->medium = pos_median(bigger, stack, 2);
 	aux->ra = 0;
 	aux->rb = 0;
 	aux->pa = 0;
@@ -61,7 +62,7 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 	}
 	operations(PB, stack, stack_b);
 	//push(stack_b, pop(stack));
-	aux->pb++;
+	//aux->pb++;
 	if (*(int *)see_stack(stack_b) > aux->medium.value)
 	{
 		operations(RB, stack, stack_b);
@@ -116,7 +117,7 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 	while (size--)
 		divide_stack(stack, stack_b, aux, &size);
 	restore_stack(stack, stack_b, aux, &size);
-	ft_sort(aux->ra, stack, stack_b, count);
 	ft_sort_b(aux->rb, stack, stack_b, count);
 	ft_sort_b(aux->pb - aux->rb, stack, stack_b, count);
+	//ft_sort(aux->ra, stack, stack_b, count);
 }
