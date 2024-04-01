@@ -6,18 +6,18 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 19:01:29 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/01 19:08:15 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/01 19:17:00 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-int	smaller(t_stack *stack, int size)
+int	smaller_middler(t_stack *stack, int size)
 {
-	t_stack	*node;
+	t_list	*node;
 	int		small;
 
-	node = stack;
+	node = stack->head;
 	small = *((int *)node->content);
 	while (node && size--)
 	{
@@ -29,12 +29,12 @@ int	smaller(t_stack *stack, int size)
 	return (small);
 }
 
-int	bigger(t_stack *stack, int size)
+int	bigger_middler(t_stack *stack, int size)
 {
-	t_stack	*node;
+	t_list	*node;
 	int		big;
 
-	node = stack;
+	node = stack->head;
 	big = *((int *)node->content);
 	while (node && size--)
 	{
@@ -48,18 +48,18 @@ int	bigger(t_stack *stack, int size)
 
 int	middler(t_stack *stack, int range, int size)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 	int		i;
 	int		min;
 	int		big;
 	int		small;
 
-	big = bigger(stack, size);
-	small = smaller(stack, size);
+	big = bigger_middler(stack, size);
+	small = smaller_middler(stack, size);
 	while (--range)
 	{
 		min = small;
-		tmp = stack;
+		tmp = stack->head;
 		i = 0;
 		while (tmp && i++ < size)
 		{

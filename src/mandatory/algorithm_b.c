@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/01 19:10:33 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/01 19:14:25 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static void	divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux, int *si
 	t_list	*temp;
 
 	temp = stack_b->head->next;
-	if (*size && *(int *)see_stack(stack_b) >= aux->medium.value
-		&& *((int *)temp->content) <= aux->medium.value
-		&& *(int *)see_stack(stack_b) <= aux->big.value)
+	if (*size && *(int *)see_stack(stack_b) >= aux->medium
+		&& *((int *)temp->content) <= aux->medium
+		&& *(int *)see_stack(stack_b) <= aux->big)
 	{
 		//push(stack_b, pop(stack));
 		operations(PA, stack, stack_b);
@@ -49,7 +49,7 @@ static void	divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux, int *si
 		(*size)--;
 		return ;
 	}
-	if (*(int *)see_stack(stack_b) <= aux->medium.value)
+	if (*(int *)see_stack(stack_b) <= aux->medium)
 	{
 		//rotate(stack);
 		operations(RB, stack, stack_b);
@@ -59,7 +59,7 @@ static void	divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux, int *si
 	operations(PA, stack, stack_b);
 	//push(stack_b, pop(stack));
 	aux->pa++;
-	if (*(int *)see_stack(stack) <= aux->big.value)
+	if (*(int *)see_stack(stack) <= aux->big)
 	{
 		operations(RA, stack, stack_b);
 		//rotate(stack_b);

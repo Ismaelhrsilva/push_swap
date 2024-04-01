@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/01 19:10:18 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/01 19:13:50 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 	//if (*size && *(int *)stack->head->content->value < aux->big.value
 	//	&& *(int *)stack->head->next->content->value > aux->big.value
 	//	&& *(int *)stack->head->content->value > aux->medium.value)
-	if (*size && *(int *)see_stack(stack) < aux->big.value
-		&& *((int *)temp->content) > aux->big.value
-		&& *(int *)see_stack(stack) > aux->medium.value)
+	if (*size && *(int *)see_stack(stack) < aux->big
+		&& *((int *)temp->content) > aux->big
+		&& *(int *)see_stack(stack) > aux->medium)
 	{
 		//push(stack_b, pop(stack));
 		operations(PB, stack, stack_b);
@@ -52,7 +52,7 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 		(*size)--;
 		return ;
 	}
-	if (*(int *)see_stack(stack) > aux->big.value)
+	if (*(int *)see_stack(stack) > aux->big)
 	{
 		//rotate(stack);
 		operations(RA, stack, stack_b);
@@ -62,7 +62,7 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 	operations(PB, stack, stack_b);
 	//push(stack_b, pop(stack));
 	//aux->pb++;
-	if (*(int *)see_stack(stack_b) > aux->medium.value)
+	if (*(int *)see_stack(stack_b) > aux->medium)
 	{
 		operations(RB, stack, stack_b);
 		//rotate(stack_b);
@@ -111,8 +111,8 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 		return ;
 	}
 	aux = init_aux(stack, size);
-	ft_printf("Bigger -> %d \n", aux->big.value);
-	ft_printf("Medium -> %d \n", aux->medium.value);
+	ft_printf("Bigger -> %d \n", aux->big);
+	ft_printf("Medium -> %d \n", aux->medium);
 	while (size--)
 		divide_stack(stack, stack_b, aux, &size);
 	restore_stack(stack, stack_b, aux, &size);
