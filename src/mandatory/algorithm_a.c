@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/01 19:13:50 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:07:28 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,12 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 	t_list	*temp;
 
 	temp = stack->head->next;
-	//if (*size && *(int *)stack->head->content->value < aux->big.value
-	//	&& *(int *)stack->head->next->content->value > aux->big.value
-	//	&& *(int *)stack->head->content->value > aux->medium.value)
 	if (*size && *(int *)see_stack(stack) < aux->big
 		&& *((int *)temp->content) > aux->big
 		&& *(int *)see_stack(stack) > aux->medium)
 	{
-		//push(stack_b, pop(stack));
 		operations(PB, stack, stack_b);
 		aux->pb++;
-		//rotate(stack);
-		//rotate(stack_b);
 		operations(RA, stack, stack_b);
 		operations(RB, stack, stack_b);
 		aux->ra++;
@@ -54,18 +48,15 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 	}
 	if (*(int *)see_stack(stack) > aux->big)
 	{
-		//rotate(stack);
 		operations(RA, stack, stack_b);
 		aux->ra++;
 		return ;
 	}
 	operations(PB, stack, stack_b);
-	//push(stack_b, pop(stack));
-	//aux->pb++;
+	aux->pb++;
 	if (*(int *)see_stack(stack_b) > aux->medium)
 	{
 		operations(RB, stack, stack_b);
-		//rotate(stack_b);
 		aux->rb++;
 	}
 }
@@ -106,8 +97,8 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 
 	if (size <= 5)
 	{
-		sort_5(stack, stack_b);
-		ft_printf("Passei aqui \n");
+		sort_handler(stack, stack_b, 0, size);
+		//sort_5(stack, stack_b);
 		return ;
 	}
 	aux = init_aux(stack, size);
@@ -115,8 +106,9 @@ void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count)
 	ft_printf("Medium -> %d \n", aux->medium);
 	while (size--)
 		divide_stack(stack, stack_b, aux, &size);
-	restore_stack(stack, stack_b, aux, &size);
+	restore_stack(stack, stack_b, aux, count);
 	ft_sort(aux->ra, stack, stack_b, count);
 	ft_sort_b(aux->rb, stack, stack_b, count);
 	ft_sort_b(aux->pb - aux->rb, stack, stack_b, count);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/01 19:21:31 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:07:30 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,8 @@ static void	divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux, int *si
 		&& *((int *)temp->content) <= aux->medium
 		&& *(int *)see_stack(stack_b) <= aux->big)
 	{
-		//push(stack_b, pop(stack));
 		operations(PA, stack, stack_b);
 		aux->pa++;
-		//rotate(stack);
-		//rotate(stack_b);
 		operations(RA, stack, stack_b);
 		operations(RB, stack, stack_b);
 		aux->ra++;
@@ -51,23 +48,20 @@ static void	divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux, int *si
 	}
 	if (*(int *)see_stack(stack_b) <= aux->medium)
 	{
-		//rotate(stack);
 		operations(RB, stack, stack_b);
 		aux->rb++;
 		return ;
 	}
 	operations(PA, stack, stack_b);
-	//push(stack_b, pop(stack));
 	aux->pa++;
 	if (*(int *)see_stack(stack) <= aux->big)
 	{
 		operations(RA, stack, stack_b);
-		//rotate(stack_b);
 		aux->ra++;
 	}
 }
 
-static void	restore_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size)
+static void	restore_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux)
 {
 	int	rrr;
 	int	rrx;
@@ -82,7 +76,6 @@ static void	restore_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux, int *s
 	{
 		rrr = aux->ra;
 		rrx = aux->rb - rrr;
-		if ((* size) > 0)
 		loop(RRB, rrx, NULL, stack_b);
 	}
 	loop(RRA, rrr, stack, NULL);
@@ -96,14 +89,15 @@ void	ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count)
 	(*count)++;
 	if (size <= 5)
 	{
-		sort_5(stack_b, stack);
+		sort_handler(stack, stack_b, 1, size);
+		//sort_5(stack_b, stack);
 		return ;
 	}
 	aux = init_aux(stack_b, size);
 	while (size--)
-		divide_stack_b(stack_b, stack, aux, &size);
+		divide_stack_b(stack, stack_b, aux, &size);
 	ft_sort(aux->pa - aux->ra, stack, stack_b, count);
-	restore_stack_b(stack, stack_b, aux, &size);
+	restore_stack_b(stack, stack_b, aux);
 	ft_sort(aux->ra, stack, stack_b, count);
 	ft_sort_b(aux->rb, stack, stack_b, count);
 }

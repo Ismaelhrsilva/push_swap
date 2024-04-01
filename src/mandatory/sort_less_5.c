@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:28:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 21:25:59 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:08:11 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,27 @@ void	sort_5(t_stack *stack, t_stack *stack_b)
 	operations(PB, stack, stack_b);
 	sort_4(stack, stack_b);
 	operations(PA, stack, stack_b);
+}
+
+void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size)
+{
+	if (flag == 0)
+	{
+		if (sorted_stack(stack))
+			sort_5(stack, stack_b);
+		else
+			return ;
+	}
+	else
+	{
+		if (sorted_stack(stack_b))
+			sort_5(stack_b, stack);
+		else
+		{
+			loop(PA, size, stack, stack_b);
+			return ;
+		}
+	}
+	sort_handler(stack, stack_b, 0, (size / 2) + (size % 2));
+	sort_handler(stack, stack_b,  1, (size / 2));
 }
