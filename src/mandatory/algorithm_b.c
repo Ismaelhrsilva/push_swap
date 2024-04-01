@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/01 19:14:25 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/01 19:21:31 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,12 @@ void	ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count)
 	(*count)++;
 	if (size <= 5)
 	{
-		sort_5(stack, stack_b);
-		ft_printf("Passei aqui \n");
+		sort_5(stack_b, stack);
 		return ;
 	}
 	aux = init_aux(stack_b, size);
 	while (size--)
-		divide_stack_b(stack, stack_b, aux, &size);
-	ft_printf("aaaaaaaaaaaaaaaaaaaaaaaa\n");
+		divide_stack_b(stack_b, stack, aux, &size);
 	ft_sort(aux->pa - aux->ra, stack, stack_b, count);
 	restore_stack_b(stack, stack_b, aux, &size);
 	ft_sort(aux->ra, stack, stack_b, count);
