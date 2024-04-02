@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 19:01:29 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/01 19:45:51 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/02 18:32:06 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	middler(t_stack *stack, int range, int size)
 		i = 0;
 		while (tmp && i++ < size)
 		{
-			if (*(int *)see_stack(stack) > min && *(int *)see_stack(stack) < big)
+			if (*(int *)tmp->content > min && *(int *)tmp->content < big)
 				min = *((int *)tmp->content);
 			tmp = tmp->next;
 		}
