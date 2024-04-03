@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/01 20:05:03 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/02 20:51:28 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ typedef struct s_stack
 	t_list	*head;
 	int	size;
 }	t_stack;
+
+enum e_flags
+{
+	STACK_A,
+	STACK_B,
+};
 
 typedef int	(*t_weight)(int a, int b);
 
