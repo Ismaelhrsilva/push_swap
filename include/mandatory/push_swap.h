@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/02 20:51:28 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/02 21:10:05 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	*see_stack(t_stack *stack);
 void	sort_3(t_stack *stack);
 void	sort_4(t_stack *stack, t_stack *stack_b);
 void	sort_5(t_stack *stack, t_stack *stack_b);
+//void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size);
 void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size);
 
 /*** Functions operations ***/

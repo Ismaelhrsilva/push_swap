@@ -6,30 +6,30 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:48:38 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/02 21:06:28 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/02 21:15:58 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
 
-static int	stack_sorted(t_lnode *stack, int flag, int size)
+static int	stack_sorted(t_stack *stack, int flag, int size)
 {
-	t_lnode	*node;
+	t_list	*node;
 
-	node = stack;
+	node = stack->head;
 	while (node && --size)
 	{
-		if (flag == STACK_A && node->next && node->nbr > node->next->nbr)
-			return (FAILURE);
-		else if (node->next && node->nbr < node->next->nbr)
-			return (FAILURE);
+		if (flag == STACK_A && node->next && *(int *)node->content > *(int *)node->next->content)
+			return (0);
+		else if (node->next && *(int *)node->content < *(int *)node->next->content)
+			return (0);
 		node = node->next;
 	}
-	return (SUCCESS);
+	return (1);
 }
 
-static void	sort_stack_a(t_stack *stack, int size)
+static void	sort_stack_a(t_stack *stack, t_stack *stack_b,  int size)
 {
 	int	mid;
 	int	pushs;
@@ -52,7 +52,7 @@ static void	sort_stack_a(t_stack *stack, int size)
 		loop(RA, rotates, stack, NULL);
 }
 
-static void	sort_stack_b(t_stack *stack_b, int size)
+static void	sort_stack_b(t_stack *stack, t_stack *stack_b, int size)
 {
 	int	mid;
 	int	pushs;
@@ -78,7 +78,7 @@ static void	sort_stack_b(t_stack *stack_b, int size)
 static int	check_handler(t_stack *stack, t_stack *stack_b,  int flag, int size)
 {
 	if (size > 3)
-		return (FAILURE);
+		return (0);
 	else if (size == 3 && flag == STACK_A)
 	{	
 		sort_3(stack);	
@@ -101,24 +101,24 @@ static int	check_handler(t_stack *stack, t_stack *stack_b,  int flag, int size)
 	}
 	else if (size == 1 && flag == STACK_B)
 		operations(PA, stack, stack_b);
-	return (SUCCESS);
+	return (1);
 }
 
-void	sort_handler(t_stack *stack, t_stack *stack_b int flag, int size)
+void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size)
 {
 	if (check_handler(stack, stack_b, flag, size))
 		return ;
 	if (flag == STACK_A)
 	{
 		if (!stack_sorted(stack, flag, size))
-			sort_stack_a(stack, size);
+			sort_stack_a(stack, stack_b, size);
 		else
 			return ;
 	}
 	else
 	{
 		if (!stack_sorted(stack_b, flag, size))
-			sort_stack_b(stack_b, size);
+			sort_stack_b(stack, stack_b, size);
 		else
 		{
 			loop(PA, size, stack, stack_b);
@@ -126,5 +126,5 @@ void	sort_handler(t_stack *stack, t_stack *stack_b int flag, int size)
 		}
 	}
 	sort_handler(stack, stack_b, STACK_A, (size / 2) + (size % 2));
-	sort_handler(stacks, stack_b, STACK_B, (size / 2));
+	sort_handler(stack, stack_b, STACK_B, (size / 2));
 }

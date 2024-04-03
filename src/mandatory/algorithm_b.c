@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/02 18:37:36 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/02 21:10:36 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count)
 	(*count)++;
 	if (size <= 5)
 	{
-		sort_handler(stack, stack_b, 1, size);
+		sort_handler(stack, stack_b, STACK_B, size);
 		return ;
 	}
 	aux = init_aux(stack_b, size);
