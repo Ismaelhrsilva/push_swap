@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 20:06:09 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:29:50 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ static void divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux,
       *(int *)see_stack(stack_b) <= aux->big) {
     operations(PA, stack, stack_b);
     aux->pa++;
-    operations(RA, stack, stack_b);
-    operations(RB, stack, stack_b);
+    operations(RR, stack, stack_b);
     aux->ra++;
     aux->rb++;
     (*size)--;
@@ -70,8 +69,7 @@ static void restore_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux) {
     rrx = aux->rb - rrr;
     loop(RRB, rrx, stack, stack_b);
   }
-  loop(RRA, rrr, stack, stack_b);
-  loop(RRB, rrr, stack, stack_b);
+  loop(RRR, rrr, stack, stack_b);
 }
 
 void ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count) {

@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:48:38 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 20:15:01 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:19:52 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void sort_stack_a(t_stack *stack, t_stack *stack_b, int size) {
     }
   }
   if (stack->size > rotates)
-    loop(RA, rotates, stack, NULL);
+    loop(RA, rotates, stack, stack_b);
 }
 
 static void sort_stack_b(t_stack *stack, t_stack *stack_b, int size) {
@@ -64,7 +64,7 @@ static void sort_stack_b(t_stack *stack, t_stack *stack_b, int size) {
     }
   }
   if (stack_b->size > rotates)
-    loop(RB, rotates, NULL, stack_b);
+    loop(RB, rotates, stack, stack_b);
 }
 
 static int check_handler(t_stack *stack, t_stack *stack_b, int flag, int size) {

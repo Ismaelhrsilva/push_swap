@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 20:10:29 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:16:47 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define NUMBER 7
+#define NUMBER 3
 
 typedef enum e_operations {
   SA = 1 << 1,

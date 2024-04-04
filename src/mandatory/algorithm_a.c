@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 20:05:19 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:28:52 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ static void divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux,
       *(int *)see_stack(stack) > aux->medium) {
     operations(PB, stack, stack_b);
     aux->pb++;
-    operations(RA, stack, stack_b);
-    operations(RB, stack, stack_b);
+    operations(RR, stack, stack_b);
     aux->ra++;
     aux->rb++;
     (*size)--;
@@ -78,8 +77,7 @@ static void restore_stack(t_stack *stack, t_stack *stack_b, t_aux *aux,
       loop(RRB, aux->rb, stack, stack_b);
   }
   if ((*size) > 0) {
-    loop(RRA, rrr, stack, stack_b);
-    loop(RRB, rrr, stack, stack_b);
+    loop(RRR, rrr, stack, stack_b);
   }
 }
 
@@ -91,8 +89,6 @@ void ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count) {
     return;
   }
   aux = init_aux(stack, size);
-  ft_printf("Bigger -> %d \n", aux->big);
-  ft_printf("Medium -> %d \n", aux->medium);
   while (size--)
     divide_stack(stack, stack_b, aux, &size);
   restore_stack(stack, stack_b, aux, count);
