@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/03 21:12:26 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/03 21:24:32 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include "../lib/libft/libft.h"
 # include "../lib/printf/ft_printf.h"
+
+# define NUMBER 3
 
 typedef enum e_operations
 {
