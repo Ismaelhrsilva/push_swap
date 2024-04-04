@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:48:38 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/03 20:26:05 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/03 21:12:56 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static int	check_handler(t_stack *stack, t_stack *stack_b,  int flag, int size)
 		return (0);
 	else if (size == 3 && flag == STACK_A)
 	{	
-		three_handler_a(stack);
+		three_handler_a(stack, stack_b);
 	}
 	else if (size == 3)
 	{
@@ -128,3 +128,4 @@ void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size)
 	sort_handler(stack, stack_b, STACK_A, (size / 2) + (size % 2));
 	sort_handler(stack, stack_b, STACK_B, (size / 2));
 }
+
