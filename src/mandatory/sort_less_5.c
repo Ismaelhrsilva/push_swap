@@ -6,22 +6,22 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:28:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 19:17:21 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:10:15 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-void sort_three(t_stack *stack) {
+void sort_three(t_stack *stack, t_stack *stack_b) {
   int big;
 
   big = bigger_middler(stack, stack->size);
   if (*(int *)stack->head->content == big)
-    operations(RA, stack, NULL);
+    operations(RA, stack, stack_b);
   else if (*(int *)stack->head->next->content == big)
-    operations(RRA, stack, NULL);
+    operations(RRA, stack, stack_b);
   if (*(int *)stack->head->content > *(int *)stack->head->next->content)
-    operations(SA, stack, NULL);
+    operations(SA, stack, stack_b);
 }
 
 void sort_3(t_stack *stack) {

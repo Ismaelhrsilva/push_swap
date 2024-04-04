@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 20:06:05 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 19:18:40 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:10:59 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void three_handler_a(t_stack *stack, t_stack *stack_b) {
   min = smaller_middler(stack, 3);
   max = bigger_middler(stack, 3);
   if (stack->size == 3)
-    sort_three(stack);
+    sort_three(stack, stack_b);
   else if (*(int *)stack->head->content == min)
     min_top(stack, stack_b, max);
   else if (*(int *)stack->head->next->content == min)
