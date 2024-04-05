@@ -6,10 +6,11 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 20:29:50 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/05 20:16:40 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "mandatory/push_swap.h"
 
 static t_aux *init_aux(t_stack *stack, int size) {
@@ -79,6 +80,10 @@ void ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count) {
   if (size <= NUMBER) {
     sort_handler(stack, stack_b, STACK_B, size);
     return;
+  }
+  if (!stack_sorted_end(stack, stack_b, stack->size, stack_b->size)) {
+    ft_printf("Stack_b \n");
+    loop(PA, size, stack, stack_b);
   }
   aux = init_aux(stack_b, size);
   while (size--)

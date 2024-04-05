@@ -6,13 +6,13 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:48:38 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 20:19:52 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/05 20:11:52 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-static int stack_sorted(t_stack *stack, int flag, int size) {
+int stack_sorted(t_stack *stack, int flag, int size) {
   t_list *node;
 
   node = stack->head;
@@ -23,6 +23,29 @@ static int stack_sorted(t_stack *stack, int flag, int size) {
     else if (node->next && *(int *)node->content < *(int *)node->next->content)
       return (0);
     node = node->next;
+  }
+  return (1);
+}
+
+int stack_sorted_end(t_stack *stack, t_stack *stack_b, int size, int size_b) {
+  t_list *node;
+  t_list *node_b;
+
+  node = stack->head;
+  node_b = stack_b->head;
+  if (stack || stack_b)
+    return (0);
+  if (*(int *)node_b->content > *(int *)node->content)
+    return (0);
+  while (node && --size) {
+    if (node->next && *(int *)node->content > *(int *)node->next->content)
+      return (0);
+    node = node->next;
+  }
+  while (node_b && --size_b) {
+    if (node_b->next && *(int *)node_b->content < *(int *)node_b->next->content)
+      return (0);
+    node_b = node_b->next;
   }
   return (1);
 }
