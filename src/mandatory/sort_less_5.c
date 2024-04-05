@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:28:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/04 20:10:15 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:37:04 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,11 @@ void sort_three(t_stack *stack, t_stack *stack_b) {
     operations(SA, stack, stack_b);
 }
 
-void sort_3(t_stack *stack) {
-  t_pos small;
-  t_pos big;
-
-  if (stack->size == 1)
-    return;
-  else if (stack->size == 2 &&
-           *(int *)stack->head->next->content > *(int *)stack->head->content)
-    return (operations(SA, stack, NULL));
-  small = pos_(smaller, stack);
-  big = pos_(bigger, stack);
-  if (big.pos == 0)
-    operations(RA, stack, NULL);
-  else if (big.pos == 1)
-    operations(RRA, stack, NULL);
-  if (*(int *)see_stack(stack) != small.value)
-    operations(SA, stack, NULL);
-}
-
 void sort_4(t_stack *stack, t_stack *stack_b) {
   t_pos small;
 
   if (stack->size <= 3)
-    return (sort_3(stack));
+    return (sort_three(stack, stack_b));
   small = pos_(smaller, stack);
   if (small.pos == 1)
     operations(RA, stack, NULL);
@@ -58,7 +39,7 @@ void sort_4(t_stack *stack, t_stack *stack_b) {
   if (sorted_stack(stack))
     return;
   operations(PB, stack, stack_b);
-  sort_3(stack);
+  sort_three(stack, stack_b);
   operations(PA, stack, stack_b);
 }
 
