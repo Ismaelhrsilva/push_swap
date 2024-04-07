@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 16:31:09 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:55:54 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../lib/libft/libft.h"
 # include "../lib/printf/ft_printf.h"
+# include "../lib/libft/gnl/get_next_line.h"
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -64,6 +65,12 @@ enum e_flags
 	STACK_A,
 	STACK_B,
 };
+
+typedef struct s_move
+{
+	t_list *head;
+	int	size;
+}	t_move;
 
 typedef int	(*t_weight)(int a, int b);
 

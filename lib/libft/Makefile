@@ -6,7 +6,7 @@
 #    By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/11 20:55:32 by ishenriq          #+#    #+#              #
-#    Updated: 2024/03/23 12:20:47 by ishenriq         ###   ########.fr        #
+#    Updated: 2024/04/07 17:53:09 by ishenriq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,11 @@ ft_lstiter_bonus.c \
 ft_lstlast_bonus.c \
 ft_lstmap_bonus.c \
 ft_lstnew_bonus.c \
+gnl/get_next_line.c \
+gnl/get_next_line_utils.c \
 ft_lstsize_bonus.c
+
+INCLUDES = ./ ./gnl
 
 OBJS = $(PT_C:.c=.o)
 

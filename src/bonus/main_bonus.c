@@ -6,11 +6,44 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 16:32:40 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:50:15 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus/push_swap_bonus.h"
+
+static void	push_move(t_move *move, void *content)
+{
+	t_list	*node;
+
+	node = ft_lstnew(content);
+	if (!node)
+		exit(EXIT_FAILURE);
+	ft_lstadd_back(&move->head, node);
+	move->size++;
+}
+
+static void	read_from_stdin(t_move *move)
+{
+	char *buffer;
+
+	while(1)
+	{
+		buffer = get_next_line(STDIN_FILENO);
+		push_move(move, buffer);
+	}
+}
+
+static void	print_move(t_move *move)
+{
+	while (move->head)
+	{
+		ft_printf("move: %s\n", *(char *)move->head->content);
+		move->head = move->head->next;
+	}
+	exit(EXIT_FAILURE);
+}
+
 
 t_stack	*init_stack(void)
 {
@@ -24,6 +57,13 @@ t_stack	*init_stack_b(void)
 	static t_stack	stack_b;
 
 	return (&stack_b);
+}
+
+t_move	*init_move(void)
+{
+	static t_move	move;
+
+	return (&move);
 }
 
 void	ft_pushswap(t_stack *stack, t_stack *stack_b)
@@ -45,9 +85,13 @@ int	main(int argc, char **argv)
 {
 	static t_stack	*stack;
 	static t_stack	*stack_b;
+	static t_move	*move;
 
 	stack = init_stack();
 	stack_b = init_stack_b();
+	move = init_move();
+	read_from_stdin(move);
+	print_move(move);
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		exit(EXIT_FAILURE);
 	else if (argc == 2)
