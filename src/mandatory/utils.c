@@ -6,31 +6,47 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 09:59:48 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 10:13:41 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-static void error(void)
+static void ft_end(t_stack *stack)
 {
+	t_list	*temp;
+
+	if (!stack->head)
+		return ;
+	while (stack->head)
+	{
+		temp = stack->head;
+		stack->head = stack->head->next;
+		free(temp);
+	}
+	stack->head = NULL;
+}
+
+static void error(t_stack *stack)
+{
+	ft_end(stack);
 	ft_putendl_fd("Error", STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
 
 
-static void	check_number(char *nbr)
+static void	check_number(t_stack *stack, char *nbr)
 {
 	if (!nbr)
-		error();
+		error(stack);
 	if (*nbr == '-' || *nbr == '+')
 		nbr++;
 	if (!(*nbr))
-		error();
+		error(stack);
 	while (ft_isdigit(*nbr))
 		nbr++;
 	if (*nbr)
-		error();
+		error(stack);
 }
 
 static void duplicate_number(t_stack *stack, long nbr)
@@ -43,20 +59,20 @@ static void duplicate_number(t_stack *stack, long nbr)
 	while (temp)
 	{
 		if (*(int *)temp->content == nbr)
-			error();
+			error(stack);
 		else
 			temp = temp->next;
 	}
 }
 
-long *get_number(char *nbr)
+long *get_number(t_stack *stack, char *nbr)
 {
 	long	*number;
 
 	number = malloc(sizeof(int *));
 	if (!number)
 		exit(EXIT_FAILURE);
-	check_number(nbr);
+	check_number(stack, nbr);
 	*number = ft_atol(nbr);
 	return (number); 
 }
@@ -74,11 +90,11 @@ void get_list(t_stack *stack, char *list_int)
 	while (i > 0)
 	{
 		i--;
-		number = get_number(list[i]);
+		number = get_number(stack, list[i]);
 		if (!number)
 			exit(EXIT_FAILURE);
 		if (*number > N_MAX || *number < N_MIN)
-			error();
+			error(stack);
 		duplicate_number(stack, *number);
 		push(stack, number);
 	}
@@ -94,11 +110,11 @@ void get_list_2(t_stack *stack, char **list_int, int size)
 	while (i > 0)
 	{
 		i--;
-		number = get_number(list_int[i]);
+		number = get_number(stack, list_int[i]);
 		if (!number)
 			exit(EXIT_FAILURE);
 		if (*number > N_MAX || *number < N_MIN)
-			error();
+			error(stack);
 		duplicate_number(stack, *number);
 		push(stack, number);
 	}
