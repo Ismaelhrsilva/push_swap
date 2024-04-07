@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 12:34:29 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 13:09:13 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void *pop(t_stack *stack) {
   temp = stack->head;
   value = temp->content;
   stack->head = temp->next;
-  ft_lstdelone(temp, NULL);
+	free(temp);
+  //ft_lstdelone(temp, NULL);
   stack->size--;
   return (value);
 }
