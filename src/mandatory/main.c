@@ -6,13 +6,27 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 14:21:11 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:14:05 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-static void	ft_pushswap(t_stack *stack, t_stack *stack_b)
+t_stack	*init_stack(void)
+{
+	static t_stack	stack;
+
+	return (&stack);
+}
+
+t_stack	*init_stack_b(void)
+{
+	static t_stack	stack_b;
+
+	return (&stack_b);
+}
+
+void	ft_pushswap(t_stack *stack, t_stack *stack_b)
 {
 	int	count;
 
