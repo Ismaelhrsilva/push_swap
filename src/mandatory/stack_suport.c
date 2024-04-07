@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:59:21 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/02 18:46:38 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 14:28:36 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	sorted_stack(t_stack *stack)
 {
 	t_list	*temp;
-	int	size;
+	int		size;
 
 	temp = stack->head;
 	if (!temp)
@@ -56,7 +56,7 @@ t_pos	pos_(t_weight weight, t_stack *stack)
 	return (pos);
 }
 
-int		bigger(int a, int b)
+int	bigger(int a, int b)
 {
 	if (a > b)
 		return (1);
@@ -64,7 +64,7 @@ int		bigger(int a, int b)
 		return (0);
 }
 
-int		smaller(int a, int b)
+int	smaller(int a, int b)
 {
 	if (a < b)
 		return (1);
