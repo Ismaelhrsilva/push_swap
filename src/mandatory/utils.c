@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 11:41:03 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 13:43:44 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ void get_list(t_stack *stack, char *list_int)
 		if (*number > N_MAX || *number < N_MIN)
 		{
 			ft_end_split(list);
+			free(number);
 			error(stack);
 		}
 		duplicate_number(stack, number, list);

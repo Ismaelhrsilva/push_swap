@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 09:17:50 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 13:38:32 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,5 @@ void ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count) {
   restore_stack_b(stack, stack_b, aux);
   ft_sort(aux->ra, stack, stack_b, count);
   ft_sort_b(aux->rb, stack, stack_b, count);
+	free(aux);
 }
