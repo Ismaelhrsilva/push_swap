@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 15:20:31 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:21:27 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ long	*get_number(t_stack *stack, char *nbr, char **str)
 	return (number);
 }
 
+static void	ft_clear(long *number, char **list, t_stack *stack)
+{
+	ft_end_split(list);
+	if (number)
+		free(number);
+	error(stack);
+}
+
 void	get_list(t_stack *stack, char *list_int)
 {
 	char	**list;
@@ -66,16 +74,9 @@ void	get_list(t_stack *stack, char *list_int)
 		i--;
 		number = get_number(stack, list[i], list);
 		if (!number)
-		{
-			ft_end_split(list);
-			error(stack);
-		}
+			ft_clear(NULL, list, stack);
 		if (*number > N_MAX || *number < N_MIN)
-		{
-			ft_end_split(list);
-			free(number);
-			error(stack);
-		}
+			ft_clear(number, list, stack);
 		duplicate_number(stack, number, list);
 		push(stack, number);
 	}

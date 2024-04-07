@@ -6,29 +6,15 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 15:26:35 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:41:54 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
-static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size)
+static void	divide_stack_aux(t_stack *stack,
+	t_stack *stack_b, t_aux *aux)
 {
-	t_list	*temp;
-
-	temp = stack->head->next;
-	if (*size && *(int *)see_stack(stack) < aux->big &&
-		*((int *)temp->content) > aux->big &&
-		*(int *)see_stack(stack) > aux->medium)
-	{
-		operations(PB, stack, stack_b);
-		aux->pb++;
-		operations(RR, stack, stack_b);
-		aux->ra++;
-		aux->rb++;
-		(*size)--;
-		return ;
-	}
 	if (*(int *)see_stack(stack) > aux->big)
 	{
 		operations(RA, stack, stack_b);
@@ -42,6 +28,27 @@ static void	divide_stack(t_stack *stack, t_stack *stack_b, t_aux *aux, int *size
 		operations(RB, stack, stack_b);
 		aux->rb++;
 	}
+}
+
+static void	divide_stack(t_stack *stack,
+	t_stack *stack_b, t_aux *aux, int *size)
+{
+	t_list	*temp;
+
+	temp = stack->head->next;
+	if (*size && *(int *)see_stack(stack) < aux->big
+		&& *((int *)temp->content) > aux->big
+		&& *(int *)see_stack(stack) > aux->medium)
+	{
+		operations(PB, stack, stack_b);
+		aux->pb++;
+		operations(RR, stack, stack_b);
+		aux->ra++;
+		aux->rb++;
+		(*size)--;
+		return ;
+	}
+	divide_stack_aux(stack, stack_b, aux);
 }
 
 static void	restore_stack(t_stack *stack, t_stack *stack_b, t_aux *aux,

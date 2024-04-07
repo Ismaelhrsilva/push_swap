@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 15:30:54 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:36:59 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define NUMBER 3
-# define N_MIN -2147483648
+# define NUMBER	3
+# define N_MIN	-2147483648
 # define N_MAX	+2147483647
 
 typedef enum e_operations

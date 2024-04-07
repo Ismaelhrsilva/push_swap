@@ -6,12 +6,29 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 15:26:42 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:54:47 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "mandatory/push_swap.h"
+
+static void	divide_stack_b_aux(t_stack *stack, t_stack *stack_b, t_aux *aux)
+{
+	if (*(int *)see_stack(stack_b) <= aux->medium)
+	{
+		operations(RB, stack, stack_b);
+		aux->rb++;
+		return ;
+	}
+	operations(PA, stack, stack_b);
+	aux->pa++;
+	if (*(int *)see_stack(stack) <= aux->big)
+	{
+		operations(RA, stack, stack_b);
+		aux->ra++;
+	}
+}
 
 static void	divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux,
 			int *size)
@@ -31,19 +48,7 @@ static void	divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux,
 		(*size)--;
 		return ;
 	}
-	if (*(int *)see_stack(stack_b) <= aux->medium)
-	{
-		operations(RB, stack, stack_b);
-		aux->rb++;
-		return ;
-	}
-	operations(PA, stack, stack_b);
-	aux->pa++;
-	if (*(int *)see_stack(stack) <= aux->big)
-	{
-		operations(RA, stack, stack_b);
-		aux->ra++;
-	}
+	divide_stack_b_aux(stack, stack_b, aux);
 }
 
 static void	restore_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux)
