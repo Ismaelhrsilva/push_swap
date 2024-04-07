@@ -6,11 +6,27 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 19:01:29 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/02 18:32:06 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:26:16 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
+
+t_aux	*init_aux(t_stack *stack, int size)
+{
+	t_aux	*aux;
+
+	aux = malloc(sizeof(t_aux));
+	if (!aux)
+		return (0);
+	aux->big = middler(stack, size / 2, size);
+	aux->medium = middler(stack, size / 4 * 3, size);
+	aux->ra = 0;
+	aux->rb = 0;
+	aux->pa = 0;
+	aux->pb = 0;
+	return (aux);
+}
 
 int	smaller_middler(t_stack *stack, int size)
 {

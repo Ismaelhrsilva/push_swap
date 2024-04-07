@@ -6,28 +6,12 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 14:09:28 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:26:42 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "mandatory/push_swap.h"
-
-static t_aux	*init_aux(t_stack *stack, int size)
-{
-	t_aux	*aux;
-
-	aux = malloc(sizeof(t_aux));
-	if (!aux)
-		return (0);
-	aux->big = middler(stack, size / 2, size);
-	aux->medium = middler(stack, size / 4 * 3, size);
-	aux->ra = 0;
-	aux->rb = 0;
-	aux->pa = 0;
-	aux->pb = 0;
-	return (aux);
-}
 
 static void	divide_stack_b(t_stack *stack, t_stack *stack_b, t_aux *aux,
 			int *size)

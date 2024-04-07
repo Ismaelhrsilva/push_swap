@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 15:22:53 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:30:54 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,15 @@ void	show_ops(t_operations operation);
 /*** Functions Algorithm ***/
 void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count);
 void	ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count);
-
-/*** Functions about aux big and medium ***/
-int		smaller_middler(t_stack *stack, int size);
-int		bigger_middler(t_stack *stack, int size);
-int		middler(t_stack *stack, int range, int size);
-
-
-
 void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size);
 int		stack_sorted(t_stack *stack, int flag, int size);
 void	three_handler_a(t_stack *stack, t_stack *stack_b);
 void	three_handler_b(t_stack *stack, t_stack *stack_b);
+
+/*** Functions about aux big and medium ***/
+t_aux	*init_aux(t_stack *stack, int size);
+int		smaller_middler(t_stack *stack, int size);
+int		bigger_middler(t_stack *stack, int size);
+int		middler(t_stack *stack, int range, int size);
+
 #endif
