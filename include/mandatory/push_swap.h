@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 15:14:18 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:22:53 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,19 @@ t_stack	*init_stack_b(void);
 void	ft_pushswap(t_stack *stack, t_stack *stack_b);
 
 /*** Utils Functions ***/
-void	print_stack(t_stack *stack);
+void	ft_end_split(char **str);
+void	ft_end(t_stack *stack);
+void	ft_end_after_begin(t_stack *stack, t_stack *stack_b);
+void	error(t_stack *stack);
+int		check_number(char *nbr);
+
+/*** Utils 2 Functions ***/
+void	duplicate_number(t_stack *stack, long *nbr, char **str);
+long	*get_number(t_stack *stack, char *nbr, char **str);
 void	get_list(t_stack *stack, char *list_int);
 void	get_list_2(t_stack *stack, char **list_int, int size);
-long	*get_number(t_stack *stack, char *nbr, char **str);
-void	ft_end_after_begin(t_stack *stack, t_stack *stack_b);
 
-/*** Functions implementation of stack ***/
+/*** Functions stack ***/
 void	push(t_stack *stack, void *content);
 void	*pop(t_stack *stack);
 void	swap(t_stack *stack);
@@ -97,15 +103,11 @@ void	*see_stack(t_stack *stack);
 void	sort_three(t_stack *stack, t_stack *stack_b);
 void	sort_4(t_stack *stack, t_stack *stack_b);
 void	sort_5(t_stack *stack, t_stack *stack_b);
-void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size);
-int		stack_sorted(t_stack *stack, int flag, int size);
-void	three_handler_a(t_stack *stack, t_stack *stack_b);
-void	three_handler_b(t_stack *stack, t_stack *stack_b);
 
 /*** Functions operations ***/
 void	operations(t_operations operations, t_stack *stack, t_stack *stack_b);
 void	loop(t_operations operations, long x, t_stack *stack, t_stack *stack_b);
-void	print_operations(t_stack *stack);
+void	show_ops(t_operations operation);
 
 /*** Functions Algorithm ***/
 void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count);
@@ -116,4 +118,10 @@ int		smaller_middler(t_stack *stack, int size);
 int		bigger_middler(t_stack *stack, int size);
 int		middler(t_stack *stack, int range, int size);
 
+
+
+void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size);
+int		stack_sorted(t_stack *stack, int flag, int size);
+void	three_handler_a(t_stack *stack, t_stack *stack_b);
+void	three_handler_b(t_stack *stack, t_stack *stack_b);
 #endif

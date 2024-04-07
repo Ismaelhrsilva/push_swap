@@ -6,13 +6,11 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 20:13:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 14:25:44 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:22:19 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
-
-static void	show_ops(t_operations operation);
 
 void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 {
@@ -54,7 +52,7 @@ void	loop(t_operations operation, long x, t_stack *stack, t_stack *stack_b)
 	}
 }
 
-static void	show_ops(t_operations operation)
+void	show_ops(t_operations operation)
 {
 	if (operation & SA || operation & SB)
 		ft_putstr("s");
