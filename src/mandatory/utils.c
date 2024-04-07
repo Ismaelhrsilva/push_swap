@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 09:49:53 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 09:59:48 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	check_number(char *nbr)
 		error();
 }
 
-static void duplicate_number(t_stack *stack, int nbr)
+static void duplicate_number(t_stack *stack, long nbr)
 {
 	t_list	*temp;
 
@@ -49,7 +49,7 @@ static void duplicate_number(t_stack *stack, int nbr)
 	}
 }
 
-int *get_number(char *nbr)
+long *get_number(char *nbr)
 {
 	long	*number;
 
@@ -58,14 +58,14 @@ int *get_number(char *nbr)
 		exit(EXIT_FAILURE);
 	check_number(nbr);
 	*number = ft_atol(nbr);
-	return ((int *)number); 
+	return (number); 
 }
 
 void get_list(t_stack *stack, char *list_int)
 {
 	char	**list;
 	int i;
-	int	*number;
+	long	*number;
 
 	i = 0;
 	list = ft_split(list_int, ' ');
@@ -77,6 +77,8 @@ void get_list(t_stack *stack, char *list_int)
 		number = get_number(list[i]);
 		if (!number)
 			exit(EXIT_FAILURE);
+		if (*number > N_MAX || *number < N_MIN)
+			error();
 		duplicate_number(stack, *number);
 		push(stack, number);
 	}
@@ -86,7 +88,7 @@ void get_list(t_stack *stack, char *list_int)
 void get_list_2(t_stack *stack, char **list_int, int size)
 {
 	int i;
-	int	*number;
+	long	*number;
 
 	i = size;
 	while (i > 0)
@@ -95,6 +97,9 @@ void get_list_2(t_stack *stack, char **list_int, int size)
 		number = get_number(list_int[i]);
 		if (!number)
 			exit(EXIT_FAILURE);
+		if (*number > N_MAX || *number < N_MIN)
+			error();
+		duplicate_number(stack, *number);
 		push(stack, number);
 	}
 	return ;

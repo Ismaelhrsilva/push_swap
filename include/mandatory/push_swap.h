@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 09:17:26 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 09:59:24 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <unistd.h>
 
 #define NUMBER 3
+# define N_MIN -2147483648
+# define N_MAX	+2147483647
 
 typedef enum e_operations {
   SA = 1 << 1,
@@ -64,7 +66,7 @@ typedef int (*t_weight)(int a, int b);
 void print_stack(t_stack *stack);
 void get_list(t_stack *stack, char *list_int);
 void get_list_2(t_stack *stack, char **list_int, int size);
-int *get_number(char *nbr);
+long *get_number(char *nbr);
 t_stack *init_stack(void);
 t_stack *init_stack_b(void);
 
