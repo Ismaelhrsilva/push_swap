@@ -6,11 +6,48 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/03/23 18:03:13 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 09:49:53 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
+
+static void error(void)
+{
+	ft_putendl_fd("Error", STDERR_FILENO);
+	exit(EXIT_FAILURE);
+}
+
+
+static void	check_number(char *nbr)
+{
+	if (!nbr)
+		error();
+	if (*nbr == '-' || *nbr == '+')
+		nbr++;
+	if (!(*nbr))
+		error();
+	while (ft_isdigit(*nbr))
+		nbr++;
+	if (*nbr)
+		error();
+}
+
+static void duplicate_number(t_stack *stack, int nbr)
+{
+	t_list	*temp;
+
+	temp = stack->head;
+	if (!stack || !nbr)
+		return ;
+	while (temp)
+	{
+		if (*(int *)temp->content == nbr)
+			error();
+		else
+			temp = temp->next;
+	}
+}
 
 int *get_number(char *nbr)
 {
@@ -19,6 +56,7 @@ int *get_number(char *nbr)
 	number = malloc(sizeof(int *));
 	if (!number)
 		exit(EXIT_FAILURE);
+	check_number(nbr);
 	*number = ft_atol(nbr);
 	return ((int *)number); 
 }
@@ -39,6 +77,7 @@ void get_list(t_stack *stack, char *list_int)
 		number = get_number(list[i]);
 		if (!number)
 			exit(EXIT_FAILURE);
+		duplicate_number(stack, *number);
 		push(stack, number);
 	}
 	return ;
