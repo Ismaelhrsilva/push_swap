@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:38:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/10/30 20:38:58 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2024/04/07 10:49:19 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstnew(void *content)
 	t_list	*ret;
 
 	ret = (t_list *)malloc(1 * sizeof(t_list));
-	if (ret == 0)
+	if (!ret)
 		return (0);
 	ret->content = content;
 	ret->next = NULL;

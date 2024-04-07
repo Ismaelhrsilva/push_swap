@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 10:10:53 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 10:30:17 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void get_list_2(t_stack *stack, char **list_int, int size);
 long *get_number(t_stack *stack, char *nbr);
 t_stack *init_stack(void);
 t_stack *init_stack_b(void);
+void	ft_end_after_begin(t_stack *stack, t_stack *stack_b);
 
 /*** Functions implementation of stack ***/
 void push(t_stack *stack, void *content);

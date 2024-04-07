@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/05 18:52:33 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 10:52:12 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ int main(int argc, char **argv) {
     exit(EXIT_FAILURE);
   }
   if (sorted_stack(stack)) {
+	ft_end_after_begin(stack, stack_b);
     return (0);
   }
   ft_pushswap(stack, stack_b);
+	ft_end_after_begin(stack, stack_b);
   return (0);
 }

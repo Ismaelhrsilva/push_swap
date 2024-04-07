@@ -6,12 +6,26 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 10:13:41 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 11:10:19 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mandatory/push_swap.h"
 
+static void ft_end_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
 static void ft_end(t_stack *stack)
 {
 	t_list	*temp;
@@ -22,9 +36,18 @@ static void ft_end(t_stack *stack)
 	{
 		temp = stack->head;
 		stack->head = stack->head->next;
+		free(temp->content);
 		free(temp);
 	}
 	stack->head = NULL;
+}
+
+void	ft_end_after_begin(t_stack *stack, t_stack *stack_b)
+{
+	if (stack->head)
+		ft_end(stack);
+	if (stack_b->head)
+		ft_end(stack_b);
 }
 
 static void error(t_stack *stack)
@@ -34,19 +57,28 @@ static void error(t_stack *stack)
 	exit(EXIT_FAILURE);
 }
 
-
-static void	check_number(t_stack *stack, char *nbr)
+static int	check_number(char *nbr)
 {
 	if (!nbr)
-		error(stack);
+	{
+		return (1);
+		//error(stack);
+	}
 	if (*nbr == '-' || *nbr == '+')
 		nbr++;
 	if (!(*nbr))
-		error(stack);
+	{
+		return (1);
+		//error(stack);
+	}
 	while (ft_isdigit(*nbr))
 		nbr++;
 	if (*nbr)
-		error(stack);
+	{
+		return (1);
+		//error(stack);
+	}
+	return (0);
 }
 
 static void duplicate_number(t_stack *stack, long nbr)
@@ -71,8 +103,12 @@ long *get_number(t_stack *stack, char *nbr)
 
 	number = malloc(sizeof(int *));
 	if (!number)
-		exit(EXIT_FAILURE);
-	check_number(stack, nbr);
+		error(stack);
+	if (check_number(nbr))
+	{
+		free(number);
+		error(stack);
+	}
 	*number = ft_atol(nbr);
 	return (number); 
 }
@@ -92,12 +128,19 @@ void get_list(t_stack *stack, char *list_int)
 		i--;
 		number = get_number(stack, list[i]);
 		if (!number)
-			exit(EXIT_FAILURE);
-		if (*number > N_MAX || *number < N_MIN)
+		{
+			ft_end_split(list);
 			error(stack);
+		}
+		if (*number > N_MAX || *number < N_MIN)
+		{
+			ft_end_split(list);
+			error(stack);
+		}
 		duplicate_number(stack, *number);
 		push(stack, number);
 	}
+	ft_end_split(list);
 	return ;
 }
 
@@ -120,7 +163,6 @@ void get_list_2(t_stack *stack, char **list_int, int size)
 	}
 	return ;
 }
-
 
 t_stack *init_stack(void)
 {
