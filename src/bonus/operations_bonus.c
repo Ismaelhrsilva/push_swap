@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 20:13:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 18:09:13 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:16:33 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 		reverse_rotate(stack);
 	if (operations & RRB || operations & RRR)
 		reverse_rotate(stack_b);
-	show_ops(operations);
+	//show_ops(operations);
 }
 
 void	loop(t_operations operation, long x, t_stack *stack, t_stack *stack_b)

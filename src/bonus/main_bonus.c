@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 18:12:50 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:22:43 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,26 @@ static void	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
 	}
 }
 
-static void	print_move(t_move *move)
+static void	print_stack(t_stack *stack)
+{
+	t_list	*node;
+
+	if (!stack)
+		return ;
+	node = stack->head;
+	ft_putchar('[');
+	while (node != NULL)
+	{
+		ft_printf("%d", (*(int *)node->content));
+		if (node->next != NULL)
+			ft_putstr(", ");
+		node = node->next;
+	}
+	ft_putchar(']');
+	ft_putchar('\n');
+}
+
+/*static void	print_stack(t_move *move)
 {
 	while (move->head)
 	{
@@ -45,8 +64,7 @@ static void	print_move(t_move *move)
 		move->head = move->head->next;
 	}
 	exit(EXIT_FAILURE);
-}
-
+}*/
 
 t_stack	*init_stack(void)
 {
@@ -93,8 +111,7 @@ int	main(int argc, char **argv)
 	stack = init_stack();
 	stack_b = init_stack_b();
 	move = init_move();
-	read_from_stdin(stack, stack_b, move);
-	print_move(move);
+	//print_move(move);
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		exit(EXIT_FAILURE);
 	else if (argc == 2)
@@ -106,12 +123,19 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error", 2);
 		exit(EXIT_FAILURE);
 	}
+	read_from_stdin(stack, stack_b, move);
+	print_stack(stack);
+	print_stack(stack_b);
 	if (sorted_stack(stack))
 	{
+		ft_printf("Sorteada");
+		return (0);
+	}
+	/*
 		ft_end_after_begin(stack, stack_b);
 		return (0);
 	}
 	ft_pushswap(stack, stack_b);
-	ft_end_after_begin(stack, stack_b);
+	ft_end_after_begin(stack, stack_b);*/
 	return (0);
 }
