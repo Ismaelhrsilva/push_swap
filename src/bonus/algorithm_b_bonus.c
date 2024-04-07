@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm_b.c                                      :+:      :+:    :+:   */
+/*   algorithm_b_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 19:49:14 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 16:33:04 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:32:17 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mandatory/push_swap.h"
+#include "bonus/push_swap_bonus.h"
 
 static void	divide_stack_b_aux(t_stack *stack, t_stack *stack_b, t_aux *aux)
 {
