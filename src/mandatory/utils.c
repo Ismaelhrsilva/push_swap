@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 13:43:44 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 13:49:58 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,10 @@ void get_list_2(t_stack *stack, char **list_int, int size)
 		if (!number)
 			exit(EXIT_FAILURE);
 		if (*number > N_MAX || *number < N_MIN)
+		{
+			free(number);
 			error(stack);
+		}
 		duplicate_number(stack, number, NULL);
 		push(stack, number);
 	}
