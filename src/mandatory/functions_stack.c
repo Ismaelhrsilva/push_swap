@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 12:24:07 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 12:34:29 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ void reverse_rotate(t_stack *stack)
 		temp = temp->next;
 	}
 	clear = temp->next;
-	value = temp->next->content;
+	 value = temp->next->content;
 	push(stack, value);
 	stack->size--;
 	temp->next = NULL;
 	free(clear);
-  	//ft_lstdelone(clear, NULL);
+ 	ft_lstdelone(clear, NULL);
 }
