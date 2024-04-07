@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 17:50:15 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:12:50 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,16 @@ static void	push_move(t_move *move, void *content)
 	move->size++;
 }
 
-static void	read_from_stdin(t_move *move)
+static void	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
 {
 	char *buffer;
 
 	while(1)
 	{
 		buffer = get_next_line(STDIN_FILENO);
+		if (!buffer)
+			break ;
+		movement(stack, stack_b, buffer);
 		push_move(move, buffer);
 	}
 }
@@ -38,7 +41,7 @@ static void	print_move(t_move *move)
 {
 	while (move->head)
 	{
-		ft_printf("move: %s\n", *(char *)move->head->content);
+		ft_putendl_fd((char *)move->head->content, STDOUT_FILENO);
 		move->head = move->head->next;
 	}
 	exit(EXIT_FAILURE);
@@ -90,7 +93,7 @@ int	main(int argc, char **argv)
 	stack = init_stack();
 	stack_b = init_stack_b();
 	move = init_move();
-	read_from_stdin(move);
+	read_from_stdin(stack, stack_b, move);
 	print_move(move);
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		exit(EXIT_FAILURE);
