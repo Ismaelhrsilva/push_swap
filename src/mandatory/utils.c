@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 11:38:07 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 11:41:03 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void ft_end_split(char **str)
 	}
 	free(str);
 }
+
 static void ft_end(t_stack *stack)
 {
 	t_list	*temp;
