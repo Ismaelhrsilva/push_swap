@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 20:13:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 18:16:33 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:26:36 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,40 +37,6 @@ void	operations(t_operations operations, t_stack *stack, t_stack *stack_b)
 		reverse_rotate(stack);
 	if (operations & RRB || operations & RRR)
 		reverse_rotate(stack_b);
-	//show_ops(operations);
-}
-
-void	loop(t_operations operation, long x, t_stack *stack, t_stack *stack_b)
-{
-	long	i;
-
-	i = 0;
-	while (i < x)
-	{
-		operations(operation, stack, stack_b);
-		i++;
-	}
-}
-
-void	show_ops(t_operations operation)
-{
-	if (operation & SA || operation & SB)
-		ft_putstr("s");
-	if (operation & SS)
-		ft_putstr("ss");
-	if (operation & PA || operation & PB)
-		ft_putstr("p");
-	if (operation & RA || operation & RB)
-		ft_putstr("r");
-	if (operation & RR || operation & RRA || operation & RRB)
-		ft_putstr("rr");
-	if (operation & RRR)
-		ft_putstr("rrr");
-	if (operation & SA || operation & PA || operation & RA || operation & RRA)
-		ft_putstr("a");
-	if (operation & SB || operation & PB || operation & RB || operation & RRB)
-		ft_putstr("b");
-	ft_putchar('\n');
 }
 
 int	movement(t_stack *stack, t_stack *stack_b, char *move)

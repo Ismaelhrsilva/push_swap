@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 18:22:43 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:28:59 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,6 @@ static void	print_stack(t_stack *stack)
 	ft_putchar('\n');
 }
 
-/*static void	print_stack(t_move *move)
-{
-	while (move->head)
-	{
-		ft_putendl_fd((char *)move->head->content, STDOUT_FILENO);
-		move->head = move->head->next;
-	}
-	exit(EXIT_FAILURE);
-}*/
-
 t_stack	*init_stack(void)
 {
 	static t_stack	stack;
@@ -111,7 +101,6 @@ int	main(int argc, char **argv)
 	stack = init_stack();
 	stack_b = init_stack_b();
 	move = init_move();
-	//print_move(move);
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		exit(EXIT_FAILURE);
 	else if (argc == 2)
@@ -126,16 +115,12 @@ int	main(int argc, char **argv)
 	read_from_stdin(stack, stack_b, move);
 	print_stack(stack);
 	print_stack(stack_b);
-	if (sorted_stack(stack))
+	if (sorted_stack(stack) && !stack_b->head)
 	{
 		ft_printf("Sorteada");
 		return (0);
 	}
 	/*
-		ft_end_after_begin(stack, stack_b);
-		return (0);
-	}
-	ft_pushswap(stack, stack_b);
 	ft_end_after_begin(stack, stack_b);*/
 	return (0);
 }
