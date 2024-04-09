@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/09 18:48:30 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:13:54 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ static int	read_from_stdin(t_stack *stack, t_stack *stack_b)
 		{
 			if (result == 1)
 				result = 0;
-			else
-				continue ;
 		}
 		free(buffer);
 	}
-	if (buffer)
+	if (!buffer)
 		free(buffer);
 	return (result);
 }
@@ -113,9 +111,9 @@ int	main(int argc, char **argv)
 		print_stack(stack);
 		print_stack(stack_b);
 		if (sorted_stack(stack) && !stack_b->head)
-			ft_printf("OK");
+			ft_printf("OK\n");
 		else
-			ft_printf("KO");
+			ft_printf("KO\n");
 	}
 	else
 		ft_putstr_fd("Error", 2);	
