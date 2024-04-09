@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/09 17:58:05 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:01:09 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,9 @@ int	main(int argc, char **argv)
 	print_stack(stack);
 	print_stack(stack_b);
 	if (sorted_stack(stack) && !stack_b->head)
-	{
-		ft_printf("Sorteada");
-		return (0);
-	}
-	/*
-	ft_end_after_begin(stack, stack_b);*/
+		ft_printf("OK");
+	else
+		ft_printf("KO");
+	ft_end_after_begin(stack, stack_b);
 	return (0);
 }
