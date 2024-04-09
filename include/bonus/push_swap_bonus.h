@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 18:26:47 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:55:41 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ typedef int	(*t_weight)(int a, int b);
 /*** Main Functions ***/
 t_stack	*init_stack(void);
 t_stack	*init_stack_b(void);
-void	ft_pushswap(t_stack *stack, t_stack *stack_b);
 
 /*** Utils Functions ***/
 void	ft_end_split(char **str);
@@ -101,32 +100,9 @@ void	reverse_rotate(t_stack *stack);
 
 /*** Functions stack suport ***/
 int		sorted_stack(t_stack *stack);
-t_pos	pos_(t_weight weight, t_stack *stack);
-int		bigger(int a, int b);
-int		smaller(int a, int b);
-void	*see_stack(t_stack *stack);
-
-/*** Functions Sort less five ***/
-void	sort_three(t_stack *stack, t_stack *stack_b);
-void	sort_4(t_stack *stack, t_stack *stack_b);
-void	sort_5(t_stack *stack, t_stack *stack_b);
 
 /*** Functions operations ***/
 void	operations(t_operations operations, t_stack *stack, t_stack *stack_b);
 int		movement(t_stack *stack, t_stack *stack_b, char *move);
-
-/*** Functions Algorithm ***/
-void	ft_sort(int size, t_stack *stack, t_stack *stack_b, int *count);
-void	ft_sort_b(int size, t_stack *stack, t_stack *stack_b, int *count);
-void	sort_handler(t_stack *stack, t_stack *stack_b, int flag, int size);
-int		stack_sorted(t_stack *stack, int flag, int size);
-void	three_handler_a(t_stack *stack, t_stack *stack_b);
-void	three_handler_b(t_stack *stack, t_stack *stack_b);
-
-/*** Functions about aux big and medium ***/
-t_aux	*init_aux(t_stack *stack, int size);
-int		smaller_middler(t_stack *stack, int size);
-int		bigger_middler(t_stack *stack, int size);
-int		middler(t_stack *stack, int range, int size);
 
 #endif

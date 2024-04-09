@@ -6,13 +6,13 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/07 18:28:59 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:58:05 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus/push_swap_bonus.h"
 
-static void	push_move(t_move *move, void *content)
+/*static void	push_move(t_move *move, void *content)
 {
 	t_list	*node;
 
@@ -21,19 +21,21 @@ static void	push_move(t_move *move, void *content)
 		exit(EXIT_FAILURE);
 	ft_lstadd_back(&move->head, node);
 	move->size++;
-}
+}*/
 
 static void	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
 {
 	char *buffer;
 
+	move = 0;
 	while(1)
 	{
 		buffer = get_next_line(STDIN_FILENO);
 		if (!buffer)
 			break ;
 		movement(stack, stack_b, buffer);
-		push_move(move, buffer);
+		free(buffer);
+		//push_move(move, buffer);
 	}
 }
 
@@ -75,21 +77,6 @@ t_move	*init_move(void)
 	static t_move	move;
 
 	return (&move);
-}
-
-void	ft_pushswap(t_stack *stack, t_stack *stack_b)
-{
-	int	count;
-
-	count = 0;
-	if (stack->size <= 5)
-	{
-		sort_5(stack, stack_b);
-		return ;
-	}
-	if (sorted_stack(stack))
-		return ;
-	ft_sort(stack->size, stack, stack_b, &count);
 }
 
 int	main(int argc, char **argv)
