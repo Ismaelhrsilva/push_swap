@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/09 18:01:09 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:25:32 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 	move->size++;
 }*/
 
-static void	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
+static int	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
 {
 	char *buffer;
 
@@ -33,10 +33,14 @@ static void	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
 		buffer = get_next_line(STDIN_FILENO);
 		if (!buffer)
 			break ;
-		movement(stack, stack_b, buffer);
+		if (!movement(stack, stack_b, buffer))
+		{
+			ft_putstr_fd("Error", 2);	
+			return (0);
+		}
 		free(buffer);
-		//push_move(move, buffer);
 	}
+	return (1);
 }
 
 static void	print_stack(t_stack *stack)
@@ -99,13 +103,15 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error", 2);
 		exit(EXIT_FAILURE);
 	}
-	read_from_stdin(stack, stack_b, move);
-	print_stack(stack);
-	print_stack(stack_b);
-	if (sorted_stack(stack) && !stack_b->head)
-		ft_printf("OK");
-	else
-		ft_printf("KO");
+	if (read_from_stdin(stack, stack_b, move))
+	{
+		print_stack(stack);
+		print_stack(stack_b);
+		if (sorted_stack(stack) && !stack_b->head)
+			ft_printf("OK");
+		else
+			ft_printf("KO");
+	}
 	ft_end_after_begin(stack, stack_b);
 	return (0);
 }
