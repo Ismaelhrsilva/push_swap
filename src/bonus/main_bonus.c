@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/09 18:25:32 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:31:49 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@
 static int	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
 {
 	char *buffer;
+	int	result;
 
 	move = 0;
+	result = 1;
 	while(1)
 	{
 		buffer = get_next_line(STDIN_FILENO);
@@ -35,12 +37,14 @@ static int	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
 			break ;
 		if (!movement(stack, stack_b, buffer))
 		{
-			ft_putstr_fd("Error", 2);	
-			return (0);
+			if (result == 1)
+				result = 0;
+			else
+				continue ;
 		}
 		free(buffer);
 	}
-	return (1);
+	return (result);
 }
 
 static void	print_stack(t_stack *stack)
@@ -112,6 +116,8 @@ int	main(int argc, char **argv)
 		else
 			ft_printf("KO");
 	}
+	else
+		ft_putstr_fd("Error", 2);	
 	ft_end_after_begin(stack, stack_b);
 	return (0);
 }
