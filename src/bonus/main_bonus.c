@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/09 19:17:24 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:40:33 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static int	read_from_stdin(t_stack *stack, t_stack *stack_b)
 {
-	char *buffer;
-	int	result;
+	char	*buffer;
+	int		result;
 
 	result = 1;
-	while(1)
+	while (1)
 	{
 		buffer = get_next_line(STDIN_FILENO);
 		if (!buffer)
@@ -49,19 +49,8 @@ t_stack	*init_stack_b(void)
 	return (&stack_b);
 }
 
-int	main(int argc, char **argv)
+static void	ft_aux(t_stack *stack, t_stack *stack_b)
 {
-	static t_stack	*stack;
-	static t_stack	*stack_b;
-
-	stack = init_stack();
-	stack_b = init_stack_b();
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		exit(EXIT_FAILURE);
-	else if (argc == 2)
-		get_list(stack, argv[1]);
-	else
-		get_list_2(stack, argv + 1, argc - 1);
 	if (!stack->head)
 	{
 		ft_putstr_fd("Error", 2);
@@ -75,7 +64,23 @@ int	main(int argc, char **argv)
 			ft_printf("KO\n");
 	}
 	else
-		ft_putstr_fd("Error", 2);	
+		ft_putstr_fd("Error", 2);
+}
+
+int	main(int argc, char **argv)
+{
+	static t_stack	*stack;
+	static t_stack	*stack_b;
+
+	stack = init_stack();
+	stack_b = init_stack_b();
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		exit(EXIT_FAILURE);
+	else if (argc == 2)
+		get_list(stack, argv[1]);
+	else
+		get_list_2(stack, argv + 1, argc - 1);
+	ft_aux(stack, stack_b);
 	ft_end_after_begin(stack, stack_b);
 	return (0);
 }

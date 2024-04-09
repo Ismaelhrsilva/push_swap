@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:32:30 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/09 17:55:41 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:35:19 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,6 @@ enum e_flags
 	STACK_A,
 	STACK_B,
 };
-
-typedef struct s_move
-{
-	t_list *head;
-	int	size;
-}	t_move;
 
 typedef int	(*t_weight)(int a, int b);
 
