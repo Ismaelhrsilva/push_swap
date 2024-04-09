@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:28:56 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/04/09 18:31:49 by ishenriq         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:48:30 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@
 	move->size++;
 }*/
 
-static int	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
+static int	read_from_stdin(t_stack *stack, t_stack *stack_b)
 {
 	char *buffer;
 	int	result;
 
-	move = 0;
 	result = 1;
 	while(1)
 	{
@@ -44,6 +43,8 @@ static int	read_from_stdin(t_stack *stack, t_stack *stack_b, t_move *move)
 		}
 		free(buffer);
 	}
+	if (buffer)
+		free(buffer);
 	return (result);
 }
 
@@ -107,7 +108,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error", 2);
 		exit(EXIT_FAILURE);
 	}
-	if (read_from_stdin(stack, stack_b, move))
+	if (read_from_stdin(stack, stack_b))
 	{
 		print_stack(stack);
 		print_stack(stack_b);

@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:20:19 by ishenriq          #+#    #+#             */
-/*   Updated: 2024/01/03 21:16:31 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2024/04/09 18:42:50 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static char	*ft_build_str(t_listg **head)
 	len_list_until_nl = gnl_lstsize(*head);
 	i = 0;
 	gnl = malloc((len_list_until_nl + 1) * sizeof(char));
-	if (gnl == 0)
+	if (!gnl)
 		return (0);
 	while (len_list_until_nl--)
 	{
